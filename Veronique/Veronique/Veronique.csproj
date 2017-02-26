@@ -23,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\Veronique.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>..\..\Build\Debug\Veronique\Veronique.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\Veronique.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>..\..\Build\Release\Veronique\Veronique.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>Veronique.Program</StartupObject>
