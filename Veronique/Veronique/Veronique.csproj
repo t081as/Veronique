@@ -51,9 +51,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandAttribute.cs" />
+    <Compile Include="Definitions\DefinitionCommandAttribute.cs" />
+    <Compile Include="Definitions\IDefinitionCommand.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Writers\IWriterCommand.cs" />
+    <Compile Include="Writers\WriterCommandAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Veronique.ico" />
