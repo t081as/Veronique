@@ -18,6 +18,7 @@
 
 #region Namespaces
 using System;
+using System.Reflection;
 #endregion
 
 namespace Veronique
@@ -36,7 +37,78 @@ namespace Veronique
         /// <returns>The return value of the application.</returns>
         public static int Main(string[] args)
         {
-            return 0;
+            Version version = Assembly.GetExecutingAssembly().GetName().Version;
+
+            Console.WriteLine($"Veronique {version.Major}.{version.Minor}.{version.Revision}");
+            Console.WriteLine("(C) 2017  Tobias Koch");
+            Console.WriteLine();
+
+            try
+            {
+                ICommandLineInterface commandLineInterface;
+                string[] commandLineInterfaceArgs;
+
+                if (args.Length == 0)
+                {
+                    commandLineInterfaceArgs = new string[0];
+                    commandLineInterface = new Versionizer();
+                }
+                else
+                {
+                    switch (args[0].ToLowerInvariant().Trim())
+                    {
+                        case "init":
+                        case "-init":
+                        case "--init":
+                        case "/i":
+                        case "-i":
+                        case "--i":
+                            commandLineInterfaceArgs = new string[args.Length - 1];
+                            Array.Copy(args, 1, commandLineInterfaceArgs, 0, args.Length - 1);
+                            commandLineInterface = new Initializer();
+                            break;
+
+                        case "help":
+                        case "-help":
+                        case "--help":
+                        case "/?":
+                        case "-?":
+                        case "--?":
+                            commandLineInterfaceArgs = new string[args.Length - 1];
+                            Array.Copy(args, 1, commandLineInterfaceArgs, 0, args.Length - 1);
+                            commandLineInterface = new HelpProvider();
+                            break;
+
+                        default:
+                            Console.WriteLine($"{args[0]}: unknown command");
+                            return 1;
+                    }
+                }
+
+                commandLineInterface.Execute(commandLineInterfaceArgs);
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                ConsoleColor currentColor = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Red;
+
+                Console.WriteLine("Error:");
+                Console.WriteLine();
+
+                Exception currentException = ex;
+                while (currentException != null)
+                {
+                    Console.WriteLine($"{currentException.GetType().FullName}:");
+                    Console.WriteLine($"{currentException.Message}");
+                    Console.WriteLine();
+                    currentException = currentException.InnerException;
+                }
+
+                Console.ForegroundColor = currentColor;
+
+                return 1;
+            }
         }
 
         #endregion

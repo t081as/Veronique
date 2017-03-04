@@ -57,8 +57,12 @@
     <Compile Include="Definitions\DefinitionCommandAttribute.cs" />
     <Compile Include="Definitions\IDefinitionCommand.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="HelpProvider.cs" />
+    <Compile Include="ICommandLineInterface.cs" />
+    <Compile Include="Initializer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Versionizer.cs" />
     <Compile Include="Writers\IWriterCommand.cs" />
     <Compile Include="Writers\WriterCommandAttribute.cs" />
   </ItemGroup>
