@@ -96,13 +96,18 @@ namespace Veronique.Commands
 
                 process.Start();
 
-                string output = process.StandardOutput.ReadToEnd();
-                string error = process.StandardError.ReadToEnd();
+                string output = process.StandardOutput.ReadToEnd().Trim();
+                string error = process.StandardError.ReadToEnd().Trim();
 
                 process.WaitForExit();
                 process.Close();
 
-                return output.Trim();
+                if (error != string.Empty)
+                {
+                    throw new ApplicationException($"{this.command}-command reported an error: {error}");
+                }
+
+                return output;
             }
             catch (Exception ex)
             {
