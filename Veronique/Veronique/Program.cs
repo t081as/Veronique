@@ -68,6 +68,17 @@ namespace Veronique
                             commandLineInterface = new Initializer();
                             break;
 
+                        case "execute":
+                        case "-execute":
+                        case "--execute":
+                        case "/e":
+                        case "-e":
+                        case "--e":
+                            commandLineInterfaceArgs = new string[args.Length - 1];
+                            Array.Copy(args, 1, commandLineInterfaceArgs, 0, args.Length - 1);
+                            commandLineInterface = new Versionizer();
+                            break;
+
                         case "help":
                         case "-help":
                         case "--help":
