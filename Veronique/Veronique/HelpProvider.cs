@@ -36,6 +36,20 @@ namespace Veronique
         /// <exception cref="ApplicationException">An error occured while executing the command.</exception>
         public void Execute(string[] args)
         {
+            if (args.Length == 0)
+            {
+                Console.WriteLine("USAGE: Veronique [command] [params]");
+                Console.WriteLine();
+                Console.WriteLine("COMMANDS:");
+                Console.WriteLine("  init         Creates a configuration file in the current directory");
+                Console.WriteLine("  execute      Executes the configuration file in the current directory");
+                Console.WriteLine("  help         Shows this usage guide or detailled topic based help");
+                Console.WriteLine();
+                Console.WriteLine("HELP:");
+                Console.WriteLine("  help list    Lists all available help topics");
+                Console.WriteLine("  help [topic] Shows help for the given topic");
+            }
+
             return;
         }
 

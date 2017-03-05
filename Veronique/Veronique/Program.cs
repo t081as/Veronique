@@ -92,7 +92,7 @@ namespace Veronique
 
                         default:
                             Console.WriteLine($"{args[0]}: unknown command");
-                            Console.WriteLine("Type 'veronique help' for usage guide");
+                            Console.WriteLine("Type 'Veronique help' for help");
                             return 1;
                     }
                 }
