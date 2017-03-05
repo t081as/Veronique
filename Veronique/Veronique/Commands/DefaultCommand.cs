@@ -42,6 +42,11 @@ namespace Veronique.Commands
         /// </summary>
         private string commandLine;
 
+        /// <summary>
+        /// Indicates if an exception shall be thrown if the command writes data to the standard error output.
+        /// </summary>
+        private bool throwExceptionOnStandardError;
+
         #endregion
 
         #region Constructors and Destructors
@@ -52,6 +57,7 @@ namespace Veronique.Commands
         /// <param name="command">The command that shall be executed.</param>
         public DefaultCommand(string command)
         {
+            this.throwExceptionOnStandardError = false;
             this.command = command;
         }
 
@@ -63,7 +69,19 @@ namespace Veronique.Commands
         public DefaultCommand(string command, string commandLine)
             : this(command)
         {
-            this.commandLine = command;
+            this.commandLine = commandLine;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DefaultCommand"/> class.
+        /// </summary>
+        /// <param name="command">The command that shall be executed.</param>
+        /// <param name="commandLine">The command line arguments that shall be used.</param>
+        /// <param name="throwExceptionOnStandardError">Indicates if an exception shall be thrown if the command writes data to the standard error output.</param>
+        public DefaultCommand(string command, string commandLine, bool throwExceptionOnStandardError)
+            : this(command, commandLine)
+        {
+            this.throwExceptionOnStandardError = throwExceptionOnStandardError;
         }
 
         #endregion
@@ -95,14 +113,14 @@ namespace Veronique.Commands
                 process.StartInfo.StandardErrorEncoding = Encoding.UTF8;
 
                 process.Start();
+                process.WaitForExit();
 
                 string output = process.StandardOutput.ReadToEnd().Trim();
                 string error = process.StandardError.ReadToEnd().Trim();
 
-                process.WaitForExit();
                 process.Close();
 
-                if (error != string.Empty)
+                if (error != string.Empty && this.throwExceptionOnStandardError)
                 {
                     throw new ApplicationException($"{this.command}-command reported an error: {error}");
                 }
