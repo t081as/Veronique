@@ -46,10 +46,37 @@ namespace Veronique
                 Console.WriteLine("  help         Shows this usage guide or detailled topic based help");
                 Console.WriteLine();
                 Console.WriteLine("HELP:");
+                Console.WriteLine("  help         Shows this usage guide");
                 Console.WriteLine("  help list    Lists all available help topics");
                 Console.WriteLine("  help [topic] Shows help for the given topic");
             }
+            else
+            {
+                if (args[0].ToLowerInvariant().Trim() == "list")
+                {
+                    this.ShowHelpList();
+                }
+                else
+                {
+                    this.ShowHelpTopic(args[0].ToLowerInvariant().Trim());
+                }
+            }
+        }
 
+        /// <summary>
+        /// Shows the list of all available help topics.
+        /// </summary>
+        private void ShowHelpList()
+        {
+            return;
+        }
+
+        /// <summary>
+        /// Shows a specific help topic.
+        /// </summary>
+        /// <param name="topic">The help topic that shall be shown.</param>
+        private void ShowHelpTopic(string topic)
+        {
             return;
         }
 
