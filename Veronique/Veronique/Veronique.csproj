@@ -67,6 +67,9 @@
     <Compile Include="Writers\WriterCommandAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Help\execute.txt" />
+    <EmbeddedResource Include="Help\help.txt" />
+    <EmbeddedResource Include="Help\init.txt" />
     <Content Include="Veronique.ico" />
   </ItemGroup>
   <ItemGroup>

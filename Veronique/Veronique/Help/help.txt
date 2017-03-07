@@ -1,0 +1,15 @@
+﻿HELP
+
+TYPE
+command line argument
+
+USAGE
+Veronique.exe help
+Veronique.exe help [topic]
+
+PARAMETERS
+topic (optinal):
+The name of a help topic or "list" (without quotes) to display all available help topics.
+
+DESCRIPTION
+Does something...

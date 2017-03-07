@@ -1,0 +1,13 @@
+﻿INIT
+
+TYPE
+command line argument
+
+USAGE
+Veronique.exe init
+
+PARAMETERS
+-
+
+DESCRIPTION
+Does something...
