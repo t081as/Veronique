@@ -18,6 +18,9 @@
 
 #region Namespaces
 using System;
+using System.IO;
+using System.Reflection;
+using System.Text;
 #endregion
 
 namespace Veronique
@@ -68,7 +71,21 @@ namespace Veronique
         /// </summary>
         private void ShowHelpList()
         {
-            return;
+            string[] resourceNames = Assembly.GetExecutingAssembly().GetManifestResourceNames();
+
+            Array.Sort(resourceNames);
+
+            foreach (string resourceName in resourceNames)
+            {
+                string[] resourceNameParts = resourceName.Split('.');
+
+                if (resourceNameParts.Length == 4 &&
+                    resourceNameParts[3].ToLowerInvariant().Trim() == "txt" &&
+                    resourceNameParts[1].ToLowerInvariant().Trim() == "help")
+                {
+                    Console.WriteLine(resourceNameParts[2]);
+                }
+            }
         }
 
         /// <summary>
@@ -77,7 +94,11 @@ namespace Veronique
         /// <param name="topic">The help topic that shall be shown.</param>
         private void ShowHelpTopic(string topic)
         {
-            return;
+            using (Stream helpTopicStream = Assembly.GetExecutingAssembly().GetManifestResourceStream($"Veronique.Help.{topic}.txt"))
+            {
+                StreamReader reader = new StreamReader(helpTopicStream, Encoding.UTF8);
+                Console.WriteLine(reader.ReadToEnd());
+            }
         }
 
         #endregion
