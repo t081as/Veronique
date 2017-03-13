@@ -18,6 +18,10 @@
 
 #region Namespaces
 using System;
+using System.IO;
+using System.Reflection;
+using System.Text;
+using Veronique.Properties;
 #endregion
 
 namespace Veronique
@@ -36,7 +40,32 @@ namespace Veronique
         /// <exception cref="ApplicationException">An error occured while executing the command.</exception>
         public void Execute(string[] args)
         {
-            return;
+            try
+            {
+                string fileName = Path.Combine(Environment.CurrentDirectory, Settings.Default.ConfigurationFileName);
+
+                if (File.Exists(fileName))
+                {
+                    throw new ApplicationException($"Configuration file '{fileName}' already exists");
+                }
+
+                StringBuilder builder = new StringBuilder();
+                Version version = Assembly.GetExecutingAssembly().GetName().Version;
+
+                builder.AppendLine($"# Veronique {version.Major}.{version.Minor}.{version.Revision}");
+                builder.AppendLine("# see https://gitlab.com/tobiaskoch/Veronique");
+                builder.AppendLine();
+
+                File.WriteAllText(fileName, builder.ToString(), Encoding.UTF8);
+            }
+            catch (ApplicationException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Error while initializing Veronique for the current project", ex);
+            }
         }
 
         #endregion
