@@ -19,6 +19,7 @@
 #region Namespaces
 using System;
 using System.Reflection;
+using Veronique.Utilities;
 #endregion
 
 namespace Veronique
@@ -102,22 +103,20 @@ namespace Veronique
             }
             catch (Exception ex)
             {
-                ConsoleColor currentColor = Console.ForegroundColor;
-                Console.ForegroundColor = ConsoleColor.Red;
-
-                Console.WriteLine("Error:");
-                Console.WriteLine();
-
-                Exception currentException = ex;
-                while (currentException != null)
+                using (CurrentConsoleColor consoleColor = new CurrentConsoleColor(ConsoleColor.Red))
                 {
-                    Console.WriteLine($"{currentException.GetType().FullName}:");
-                    Console.WriteLine($"{currentException.Message}");
+                    Console.WriteLine("Error:");
                     Console.WriteLine();
-                    currentException = currentException.InnerException;
-                }
 
-                Console.ForegroundColor = currentColor;
+                    Exception currentException = ex;
+                    while (currentException != null)
+                    {
+                        Console.WriteLine($"{currentException.GetType().FullName}:");
+                        Console.WriteLine($"{currentException.Message}");
+                        Console.WriteLine();
+                        currentException = currentException.InnerException;
+                    }
+                }
 
                 return 1;
             }

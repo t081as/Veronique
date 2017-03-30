@@ -67,6 +67,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\CurrentConsoleColor.cs" />
     <Compile Include="Versionizer.cs" />
     <Compile Include="Writers\IWriterCommand.cs" />
     <Compile Include="Writers\WriterCommandAttribute.cs" />
