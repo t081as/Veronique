@@ -10,4 +10,4 @@ PARAMETERS
 -
 
 DESCRIPTION
-Does something...
+Initializes the versioning system by creating an empty configuration file in the current directory.

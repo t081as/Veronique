@@ -10,4 +10,4 @@ PARAMETERS
 -
 
 DESCRIPTION
-Does something...
+Executes the versioning configuration file located in the current directory.
