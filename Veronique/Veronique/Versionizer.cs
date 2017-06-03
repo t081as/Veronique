@@ -48,6 +48,13 @@ namespace Veronique
                     throw new ApplicationException($"Configuration file '{fileName}' not found");
                 }
 
+                string[] fileContent = File.ReadAllLines(fileName);
+
+                foreach (string line in fileContent)
+                {
+                    // TODO
+                }
+
                 return;
             }
             catch (ApplicationException)
