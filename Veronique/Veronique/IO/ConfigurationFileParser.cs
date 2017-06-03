@@ -18,6 +18,9 @@
 
 #region Namespaces
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
 #endregion
 
 namespace Veronique.IO
@@ -25,25 +28,111 @@ namespace Veronique.IO
     /// <summary>
     /// Represents a parser for Veronique configuration files.
     /// </summary>
-    public class ConfigurationFileParser
+    public sealed class ConfigurationFileParser
     {
         #region Constants and Fields
+
+        /// <summary>
+        /// Represents the characters used to indicate a comment.
+        /// </summary>
+        public const string CommentMarker = "#";
+
+        /// <summary>
+        /// Represents the configuration that shall be used by this parser.
+        /// </summary>
+        private string configurationFileName;
 
         #endregion
 
         #region Constructors and Destructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConfigurationFileParser"/> class.
+        /// </summary>
+        /// <param name="configurationFileName">The path and filename of the configuration that shall be used.</param>
+        public ConfigurationFileParser(string configurationFileName)
+        {
+            if (configurationFileName == null)
+            {
+                throw new ArgumentNullException("configuration");
+            }
+
+            this.configurationFileName = configurationFileName;
+        }
+
         #endregion
 
         #region Events
 
-        #endregion
+        /// <summary>
+        /// Triggered when a new definition has been detected in the configuration file.
+        /// </summary>
+        public event EventHandler<DefinitionDetectedEventArgs> DefinitionDetected;
 
-        #region Properties
+        /// <summary>
+        /// Triggered when a new output has been detected in the configuration file.
+        /// </summary>
+        public event EventHandler<OutputDetectedEventArgs> OutputDetected;
+
+        /// <summary>
+        /// Triggered when an error has been detected in the configuration file.
+        /// </summary>
+        public event EventHandler<OutputDetectedEventArgs> ErrorDetected;
 
         #endregion
 
         #region Methods
+
+        /// <summary>
+        /// Starts parsing the given configuration file.
+        /// </summary>
+        public void Parse()
+        {
+            using (Stream configuration = File.Open(this.configurationFileName, FileMode.Open, FileAccess.Read, FileShare.Read))
+            {
+                using (StreamReader reader = new StreamReader(configuration, Encoding.UTF8))
+                {
+                    string line = string.Empty;
+                    uint lineNumber = 1;
+
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        string lineWithoutComments = StripComments(line.Trim());
+
+                        lineNumber++;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Removes the comment from the given line if a comment is presents.
+        /// </summary>
+        /// <param name="configurationLine">The line of the configuration file.</param>
+        /// <returns>The line of the configurationfile without comments.</returns>
+        private static string StripComments(string configurationLine)
+        {
+            if (configurationLine == null)
+            {
+                throw new ArgumentNullException("configurationLine");
+            }
+
+            if (configurationLine.Contains(CommentMarker))
+            {
+                if (configurationLine.StartsWith(CommentMarker))
+                {
+                    return string.Empty;
+                }
+                else
+                {
+                    return configurationLine.Substring(configurationLine.IndexOf(CommentMarker));
+                }
+            }
+            else
+            {
+                return configurationLine;
+            }
+        }
 
         #endregion
     }
