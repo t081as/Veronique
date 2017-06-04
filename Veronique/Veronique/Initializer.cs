@@ -21,6 +21,7 @@ using System;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using Veronique.IO;
 using Veronique.Properties;
 #endregion
 
@@ -49,14 +50,26 @@ namespace Veronique
                     throw new ApplicationException($"Configuration file '{fileName}' already exists");
                 }
 
-                StringBuilder builder = new StringBuilder();
-                Version version = Assembly.GetExecutingAssembly().GetName().Version;
+                Definition definition = new Definition();
+                definition.Name = "MyVar";
+                definition.Command.Name = "static";
+                definition.Command.Parameters = new string[] { "0.1" };
 
-                builder.AppendLine($"# Veronique {version.Major}.{version.Minor}.{version.Revision}");
-                builder.AppendLine("# see https://gitlab.com/tobiaskoch/Veronique");
-                builder.AppendLine();
+                Writer writer = new Writer();
+                writer.Command.Name = "console";
+                writer.Command.Parameters = new string[] { "Version %MyVar%" };
 
-                File.WriteAllText(fileName, builder.ToString(), Encoding.UTF8);
+                Configuration defaultConfiguration = new Configuration();
+                defaultConfiguration.ProjectName = "MyProject";
+                defaultConfiguration.Definitions = new Definition[] { definition };
+                defaultConfiguration.Writers = new Writer[] { writer };
+
+                Console.WriteLine("Writing configuration file {0}", fileName);
+
+                using (Stream fileStream = File.Create(fileName))
+                {
+                    Configuration.Write(fileStream, defaultConfiguration);
+                }
             }
             catch (ApplicationException)
             {

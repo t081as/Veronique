@@ -25,7 +25,7 @@ namespace Veronique.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(".ohlala")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ohlala.json")]
         public string ConfigurationFileName {
             get {
                 return ((string)(this["ConfigurationFileName"]));
