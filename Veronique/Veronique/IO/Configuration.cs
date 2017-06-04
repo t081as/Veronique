@@ -18,6 +18,9 @@
 
 #region Namespaces
 using System;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
 #endregion
 
 namespace Veronique.IO
@@ -25,6 +28,7 @@ namespace Veronique.IO
     /// <summary>
     /// Represents a project configuration.
     /// </summary>
+    [DataContract]
     public class Configuration
     {
         #region Constants and Fields
@@ -71,6 +75,7 @@ namespace Veronique.IO
         /// <summary>
         /// Gets or sets the name of the project.
         /// </summary>
+        [DataMember(Name = "projectname")]
         public string ProjectName
         {
             get
@@ -87,6 +92,7 @@ namespace Veronique.IO
         /// <summary>
         /// Gets or sets the version number of this file format.
         /// </summary>
+        [DataMember(Name = "formatversion")]
         public string FormatVersion
         {
             get
@@ -103,6 +109,7 @@ namespace Veronique.IO
         /// <summary>
         /// Gets or sets the defiitions.
         /// </summary>
+        [DataMember(Name = "definitions")]
         public Definition[] Definitions
         {
             get
@@ -119,6 +126,7 @@ namespace Veronique.IO
         /// <summary>
         /// Gets or sets the writers.
         /// </summary>
+        [DataMember(Name = "writers")]
         public Writer[] Writers
         {
             get
@@ -130,6 +138,32 @@ namespace Veronique.IO
             {
                 this.writers = value;
             }
+        }
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Writes the given configuration to the given stream.
+        /// </summary>
+        /// <param name="stream">The stream the configuration shall be writen to.</param>
+        /// <param name="configuration">The configuration that shall be written.</param>
+        public static void Write(Stream stream, Configuration configuration)
+        {
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(Configuration));
+            serializer.WriteObject(stream, configuration);
+        }
+
+        /// <summary>
+        /// Reads a configuration from the given stream.
+        /// </summary>
+        /// <param name="stream">The stream that contains a configuration.</param>
+        /// <returns>The configuration read from the given stream.</returns>
+        public static Configuration Read(Stream stream)
+        {
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(Configuration));
+            return (Configuration)serializer.ReadObject(stream);
         }
 
         #endregion

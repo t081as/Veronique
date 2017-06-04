@@ -18,6 +18,7 @@
 
 #region Namespaces
 using System;
+using System.Runtime.Serialization;
 #endregion
 
 namespace Veronique.IO
@@ -25,6 +26,7 @@ namespace Veronique.IO
     /// <summary>
     /// Represents a single definition.
     /// </summary>
+    [DataContract]
     public class Definition
     {
         #region Constants and Fields

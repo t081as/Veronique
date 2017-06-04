@@ -18,6 +18,7 @@
 
 #region Namespaces
 using System;
+using System.Runtime.Serialization;
 #endregion
 
 namespace Veronique.IO
@@ -25,6 +26,7 @@ namespace Veronique.IO
     /// <summary>
     /// Represents a single command that will be executed.
     /// </summary>
+    [DataContract]
     public class Command
     {
         #region Constants and Fields
@@ -59,6 +61,7 @@ namespace Veronique.IO
         /// <summary>
         /// Gets or sets the name of the command that shall be executed.
         /// </summary>
+        [DataMember(Name = "name")]
         public string Name
         {
             get
@@ -75,6 +78,7 @@ namespace Veronique.IO
         /// <summary>
         /// Gets or sets the parameters given to the command.
         /// </summary>
+        [DataMember(Name = "parameters")]
         public string[] Parameters
         {
             get
