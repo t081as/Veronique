@@ -18,6 +18,7 @@
 
 #region Namespaces
 using System;
+using System.Collections.Generic;
 using System.IO;
 using Veronique.IO;
 using Veronique.Properties;
@@ -54,6 +55,28 @@ namespace Veronique
                 Console.WriteLine("Project: {0}", configuration.ProjectName);
                 Console.WriteLine("Definitions: {0}", configuration.Definitions.Count);
                 Console.WriteLine("Writers: {0}", configuration.Writers.Count);
+                Console.WriteLine();
+
+                Dictionary<string, string> definitions = new Dictionary<string, string>();
+
+                foreach (Definition definition in configuration.Definitions)
+                {
+                    if (definitions.ContainsKey(definition.Name.ToLowerInvariant()))
+                    {
+                        Console.WriteLine("Skipping definition {0} (value already set to '{1}')", definition.Name, definitions[definition.Name.ToLowerInvariant()]);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Processing definition {0}", definition.Name);
+                    }
+
+                    Console.WriteLine();
+                }
+
+                foreach (Writer writer in configuration.Writers)
+                {
+                    // TODO
+                }
 
                 return;
             }
