@@ -20,6 +20,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Veronique.Definitions;
 using Veronique.IO;
 using Veronique.Properties;
 #endregion
@@ -68,6 +69,19 @@ namespace Veronique
                     else
                     {
                         Console.WriteLine("Processing definition {0}", definition.Name);
+
+                        IDefinitionCommand definitionCommand = DefinitionCommandManager.CreateByName(definition.Command.Name);
+                        string definitionCommandValue = definitionCommand.Evaluate(definition.Command.Parameters.ToArray());
+
+                        if (definitionCommandValue != null && definitionCommandValue != string.Empty)
+                        {
+                            Console.WriteLine("Defition {0} processed; value: {1}", definition.Name, definitionCommandValue);
+                            definitions.Add(definition.Name.ToLowerInvariant(), definitionCommandValue);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Defition {0} processed; value: {1}", definition.Name, "EMPTY");
+                        }
                     }
 
                     Console.WriteLine();
