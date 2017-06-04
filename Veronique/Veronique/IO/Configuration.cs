@@ -18,44 +18,50 @@
 
 #region Namespaces
 using System;
-using System.Collections.Generic;
 #endregion
 
 namespace Veronique.IO
 {
     /// <summary>
-    /// An <see cref="EventArgs"/> indicating that a definition has been detected within the configuration file.
+    /// Represents a project configuration.
     /// </summary>
-    public class DefinitionDetectedEventArgs : ConfigurationFileEventArgs
+    public class Configuration
     {
         #region Constants and Fields
 
         /// <summary>
-        /// Represents the variable name of the detected definition.
+        /// Represets the name of the project.
         /// </summary>
-        private string variable;
+        private string projectName;
 
         /// <summary>
-        /// Represents the command of the detected definition.
+        /// Represents the version number of this file format.
         /// </summary>
-        private string command;
+        private string formatVersion;
 
         /// <summary>
-        /// Represents the parameters of the detected definition.
+        /// Represents the defiitions.
         /// </summary>
-        private List<string> parameters;
+        private Definition[] definitions;
+
+        /// <summary>
+        /// Represents the writers.
+        /// </summary>
+        private Writer[] writers;
 
         #endregion
 
         #region Constructors and Destructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DefinitionDetectedEventArgs"/> class.
+        /// Initializes a new instance of the <see cref="Configuration"/> class.
         /// </summary>
-        public DefinitionDetectedEventArgs()
-            : base()
+        public Configuration()
         {
-            this.parameters = new List<string>();
+            this.projectName = string.Empty;
+            this.formatVersion = "v1";
+            this.definitions = new Definition[0];
+            this.writers = new Writer[0];
         }
 
         #endregion
@@ -63,50 +69,66 @@ namespace Veronique.IO
         #region Properties
 
         /// <summary>
-        /// Gets or sets the variable name of the detected definition.
+        /// Gets or sets the name of the project.
         /// </summary>
-        public string Variable
+        public string ProjectName
         {
             get
             {
-                return this.variable;
+                return this.projectName;
             }
 
             set
             {
-                this.variable = value;
+                this.projectName = value;
             }
         }
 
         /// <summary>
-        /// Gets or sets the command of the detected definition.
+        /// Gets or sets the version number of this file format.
         /// </summary>
-        public string Command
+        public string FormatVersion
         {
             get
             {
-                return this.command;
+                return this.formatVersion;
             }
 
             set
             {
-                this.command = value;
+                this.formatVersion = value;
             }
         }
 
         /// <summary>
-        /// Gets or sets the parameters of the detected definition.
+        /// Gets or sets the defiitions.
         /// </summary>
-        public IEnumerable<string> Parameters
+        public Definition[] Definitions
         {
             get
             {
-                return this.parameters;
+                return this.definitions;
             }
 
             set
             {
-                this.parameters = new List<string>(value);
+                this.definitions = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the writers.
+        /// </summary>
+        public Writer[] Writers
+        {
+            get
+            {
+                return this.writers;
+            }
+
+            set
+            {
+                this.writers = value;
             }
         }
 

@@ -18,39 +18,38 @@
 
 #region Namespaces
 using System;
-using System.Collections.Generic;
 #endregion
 
 namespace Veronique.IO
 {
     /// <summary>
-    /// An <see cref="EventArgs"/> indicating that an output has been detected within the configuration file.
+    /// Represents a single command that will be executed.
     /// </summary>
-    public class OutputDetectedEventArgs
+    public class Command
     {
         #region Constants and Fields
 
         /// <summary>
-        /// Represents the command of the detected output.
+        /// Represents the name of the command that shall be executed.
         /// </summary>
-        private string command;
+        private string name;
 
         /// <summary>
-        /// Represents the parameters of the detected output.
+        /// Represents the parameters given to the command.
         /// </summary>
-        private List<string> parameters;
+        private string[] parameters;
 
         #endregion
 
         #region Constructors and Destructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OutputDetectedEventArgs"/> class.
+        /// Initializes a new instance of the <see cref="Command"/> class.
         /// </summary>
-        public OutputDetectedEventArgs()
-            : base()
+        public Command()
         {
-            this.parameters = new List<string>();
+            this.name = string.Empty;
+            this.parameters = new string[0];
         }
 
         #endregion
@@ -58,25 +57,25 @@ namespace Veronique.IO
         #region Properties
 
         /// <summary>
-        /// Gets or sets the command of the detected output.
+        /// Gets or sets the name of the command that shall be executed.
         /// </summary>
-        public string Command
+        public string Name
         {
             get
             {
-                return this.command;
+                return this.name;
             }
 
             set
             {
-                this.command = value;
+                this.name = value;
             }
         }
 
         /// <summary>
-        /// Gets or sets the parameters of the detected output.
+        /// Gets or sets the parameters given to the command.
         /// </summary>
-        public IEnumerable<string> Parameters
+        public string[] Parameters
         {
             get
             {
@@ -85,7 +84,7 @@ namespace Veronique.IO
 
             set
             {
-                this.parameters = new List<string>(value);
+                this.parameters = value;
             }
         }
 

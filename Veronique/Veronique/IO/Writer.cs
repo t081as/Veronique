@@ -23,27 +23,27 @@ using System;
 namespace Veronique.IO
 {
     /// <summary>
-    /// An <see cref="EventArgs"/> indicating that an error has been detected within the configuration file.
+    /// Represents a single writer.
     /// </summary>
-    public class ErrorDetectedEventArgs
+    public class Writer
     {
         #region Constants and Fields
 
         /// <summary>
-        /// Represents the line where the error has been detected.
+        /// Represents the command that shall be executed.
         /// </summary>
-        private string line;
+        private Command command;
 
         #endregion
 
         #region Constructors and Destructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ErrorDetectedEventArgs"/> class.
+        /// Initializes a new instance of the <see cref="Writer"/> class.
         /// </summary>
-        public ErrorDetectedEventArgs()
-            : base()
+        public Writer()
         {
+            this.command = new Command();
         }
 
         #endregion
@@ -51,18 +51,18 @@ namespace Veronique.IO
         #region Properties
 
         /// <summary>
-        /// Gets or sets the line where the error has been detected.
+        /// Gets or sets the command that shall be executed.
         /// </summary>
-        public string Line
+        public Command Command
         {
             get
             {
-                return this.line;
+                return this.command;
             }
 
             set
             {
-                this.line = value;
+                this.command = value;
             }
         }
 

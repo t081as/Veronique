@@ -23,46 +23,33 @@ using System;
 namespace Veronique.IO
 {
     /// <summary>
-    /// An <see cref="EventArgs"/> indicating an event from the <see cref="ConfigurationFileParser"/>.
+    /// Represents a single definition.
     /// </summary>
-    public abstract class ConfigurationFileEventArgs : EventArgs
+    public class Definition
     {
         #region Constants and Fields
 
         /// <summary>
-        /// Represents the filename of the configuration file.
+        /// Represents the name of this definition.
         /// </summary>
-        private string fileName;
+        private string name;
 
         /// <summary>
-        /// Represents the line number within the configuration file.
+        /// Represents the command that shall be executed.
         /// </summary>
-        private uint lineNumber;
+        private Command command;
 
         #endregion
 
         #region Constructors and Destructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConfigurationFileEventArgs"/> class.
+        /// Initializes a new instance of the <see cref="Definition"/> class.
         /// </summary>
-        public ConfigurationFileEventArgs()
-            : base()
+        public Definition()
         {
-            this.fileName = string.Empty;
-            this.lineNumber = 0;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ConfigurationFileEventArgs"/> class.
-        /// </summary>
-        /// <param name="fileName">The filename of the configuration file</param>
-        /// <param name="lineNumber">The line number within the configuration file.</param>
-        public ConfigurationFileEventArgs(string fileName, uint lineNumber)
-            : this()
-        {
-            this.fileName = fileName;
-            this.lineNumber = lineNumber;
+            this.name = string.Empty;
+            this.command = new Command();
         }
 
         #endregion
@@ -70,34 +57,34 @@ namespace Veronique.IO
         #region Properties
 
         /// <summary>
-        /// Gets or sets the filename of the configuration file.
+        /// Gets or sets the name of this definition.
         /// </summary>
-        public string FileName
+        public string Name
         {
             get
             {
-                return this.fileName;
+                return this.name;
             }
 
             set
             {
-                this.fileName = value;
+                this.name = value;
             }
         }
 
         /// <summary>
-        /// Gets or sets the line number within the configuration file.
+        /// Gets or sets the command that shall be executed.
         /// </summary>
-        public uint LineNumber
+        public Command Command
         {
             get
             {
-                return this.lineNumber;
+                return this.command;
             }
 
             set
             {
-                this.lineNumber = value;
+                this.command = value;
             }
         }
 
