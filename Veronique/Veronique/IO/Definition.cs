@@ -61,6 +61,7 @@ namespace Veronique.IO
         /// <summary>
         /// Gets or sets the name of this definition.
         /// </summary>
+        [DataMember(Name = "name", Order = 0)]
         public string Name
         {
             get
@@ -77,6 +78,7 @@ namespace Veronique.IO
         /// <summary>
         /// Gets or sets the command that shall be executed.
         /// </summary>
+        [DataMember(Name = "command", Order = 1)]
         public Command Command
         {
             get

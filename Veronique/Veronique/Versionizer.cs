@@ -19,6 +19,7 @@
 #region Namespaces
 using System;
 using System.IO;
+using Veronique.IO;
 using Veronique.Properties;
 #endregion
 
@@ -48,12 +49,11 @@ namespace Veronique
                     throw new ApplicationException($"Configuration file '{fileName}' not found");
                 }
 
-                string[] fileContent = File.ReadAllLines(fileName);
+                Configuration configuration = Configuration.Read(File.OpenRead(fileName));
 
-                foreach (string line in fileContent)
-                {
-                    // TODO
-                }
+                Console.WriteLine("Project: {0}", configuration.ProjectName);
+                Console.WriteLine("Definitions: {0}", configuration.Definitions.Count);
+                Console.WriteLine("Writers: {0}", configuration.Writers.Count);
 
                 return;
             }

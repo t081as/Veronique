@@ -18,6 +18,7 @@
 
 #region Namespaces
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
@@ -46,12 +47,12 @@ namespace Veronique.IO
         /// <summary>
         /// Represents the defiitions.
         /// </summary>
-        private Definition[] definitions;
+        private List<Definition> definitions;
 
         /// <summary>
         /// Represents the writers.
         /// </summary>
-        private Writer[] writers;
+        private List<Writer> writers;
 
         #endregion
 
@@ -64,8 +65,8 @@ namespace Veronique.IO
         {
             this.projectName = string.Empty;
             this.formatVersion = "v1";
-            this.definitions = new Definition[0];
-            this.writers = new Writer[0];
+            this.definitions = new List<Definition>();
+            this.writers = new List<Writer>();
         }
 
         #endregion
@@ -75,7 +76,7 @@ namespace Veronique.IO
         /// <summary>
         /// Gets or sets the name of the project.
         /// </summary>
-        [DataMember(Name = "projectname")]
+        [DataMember(Name = "projectname", Order = 0)]
         public string ProjectName
         {
             get
@@ -92,7 +93,7 @@ namespace Veronique.IO
         /// <summary>
         /// Gets or sets the version number of this file format.
         /// </summary>
-        [DataMember(Name = "formatversion")]
+        [DataMember(Name = "formatversion", Order = 1)]
         public string FormatVersion
         {
             get
@@ -109,8 +110,8 @@ namespace Veronique.IO
         /// <summary>
         /// Gets or sets the defiitions.
         /// </summary>
-        [DataMember(Name = "definitions")]
-        public Definition[] Definitions
+        [DataMember(Name = "definitions", Order = 2)]
+        public List<Definition> Definitions
         {
             get
             {
@@ -126,8 +127,8 @@ namespace Veronique.IO
         /// <summary>
         /// Gets or sets the writers.
         /// </summary>
-        [DataMember(Name = "writers")]
-        public Writer[] Writers
+        [DataMember(Name = "writers", Order = 3)]
+        public List<Writer> Writers
         {
             get
             {

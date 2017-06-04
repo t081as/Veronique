@@ -53,16 +53,16 @@ namespace Veronique
                 Definition definition = new Definition();
                 definition.Name = "MyVar";
                 definition.Command.Name = "static";
-                definition.Command.Parameters = new string[] { "0.1" };
+                definition.Command.Parameters.Add("0.1");
 
                 Writer writer = new Writer();
                 writer.Command.Name = "console";
-                writer.Command.Parameters = new string[] { "Version %MyVar%" };
+                writer.Command.Parameters.Add("Version %MyVar%");
 
                 Configuration defaultConfiguration = new Configuration();
                 defaultConfiguration.ProjectName = "MyProject";
-                defaultConfiguration.Definitions = new Definition[] { definition };
-                defaultConfiguration.Writers = new Writer[] { writer };
+                defaultConfiguration.Definitions.Add(definition);
+                defaultConfiguration.Writers.Add(writer);
 
                 Console.WriteLine("Writing configuration file {0}", fileName);
 

@@ -18,6 +18,7 @@
 
 #region Namespaces
 using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 #endregion
 
@@ -39,7 +40,7 @@ namespace Veronique.IO
         /// <summary>
         /// Represents the parameters given to the command.
         /// </summary>
-        private string[] parameters;
+        private List<string> parameters;
 
         #endregion
 
@@ -51,7 +52,7 @@ namespace Veronique.IO
         public Command()
         {
             this.name = string.Empty;
-            this.parameters = new string[0];
+            this.parameters = new List<string>();
         }
 
         #endregion
@@ -61,7 +62,7 @@ namespace Veronique.IO
         /// <summary>
         /// Gets or sets the name of the command that shall be executed.
         /// </summary>
-        [DataMember(Name = "name")]
+        [DataMember(Name = "name", Order = 0)]
         public string Name
         {
             get
@@ -78,8 +79,8 @@ namespace Veronique.IO
         /// <summary>
         /// Gets or sets the parameters given to the command.
         /// </summary>
-        [DataMember(Name = "parameters")]
-        public string[] Parameters
+        [DataMember(Name = "parameters", Order = 1)]
+        public List<string> Parameters
         {
             get
             {

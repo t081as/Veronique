@@ -55,6 +55,7 @@ namespace Veronique.IO
         /// <summary>
         /// Gets or sets the command that shall be executed.
         /// </summary>
+        [DataMember(Name = "command", Order = 0)]
         public Command Command
         {
             get
