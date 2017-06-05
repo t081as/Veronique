@@ -33,6 +33,30 @@ namespace Veronique
     /// </summary>
     public class Versionizer : ICommandLineInterface
     {
+        #region Constants and Fields
+
+        /// <summary>
+        /// Represents the dictionary used to store the processed definitions.
+        /// </summary>
+        private Dictionary<string, string> definitions = new Dictionary<string, string>();
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// Gets all processed definitions.
+        /// </summary>
+        public IDictionary<string, string> Definitions
+        {
+            get
+            {
+                return new Dictionary<string, string>(this.definitions);
+            }
+        }
+
+        #endregion
+
         #region Methods
 
         /// <summary>
@@ -58,13 +82,11 @@ namespace Veronique
                 Console.WriteLine("Writers: {0}", configuration.Writers.Count);
                 Console.WriteLine();
 
-                Dictionary<string, string> definitions = new Dictionary<string, string>();
-
                 foreach (Definition definition in configuration.Definitions)
                 {
-                    if (definitions.ContainsKey(definition.Name.ToLowerInvariant()))
+                    if (this.definitions.ContainsKey(definition.Name.ToLowerInvariant()))
                     {
-                        Console.WriteLine("Skipping definition {0} (value already set to '{1}')", definition.Name, definitions[definition.Name.ToLowerInvariant()]);
+                        Console.WriteLine("Skipping definition {0} (value already set to '{1}')", definition.Name, this.definitions[definition.Name.ToLowerInvariant()]);
                     }
                     else
                     {
@@ -76,7 +98,7 @@ namespace Veronique
                         if (definitionCommandValue != null && definitionCommandValue != string.Empty)
                         {
                             Console.WriteLine("Defition {0} processed; value: {1}", definition.Name, definitionCommandValue);
-                            definitions.Add(definition.Name.ToLowerInvariant(), definitionCommandValue);
+                            this.definitions.Add(definition.Name.ToLowerInvariant(), definitionCommandValue);
                         }
                         else
                         {
