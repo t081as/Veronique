@@ -18,6 +18,7 @@
 
 #region Namespaces
 using System;
+using Veronique.Utilities;
 #endregion
 
 namespace Veronique.Definitions
@@ -42,20 +43,7 @@ namespace Veronique.Definitions
         /// <exception cref="ApplicationException">An error occured during the operation.</exception>
         public string Evaluate(string[] parameters)
         {
-            if (parameters == null)
-            {
-                throw new ArgumentNullException("parameters");
-            }
-
-            if (parameters.Length != 1)
-            {
-                throw new ArgumentException("Invalid parameter count");
-            }
-
-            if (parameters[0] == null)
-            {
-                throw new ArgumentNullException("parameters[0]");
-            }
+            ParameterCheck.Check(parameters, 1, 1);
 
             return parameters[0];
         }
