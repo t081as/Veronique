@@ -23,6 +23,8 @@ using System.IO;
 using Veronique.Definitions;
 using Veronique.IO;
 using Veronique.Properties;
+using Veronique.Utilities;
+using Veronique.Writers;
 #endregion
 
 namespace Veronique
@@ -33,30 +35,6 @@ namespace Veronique
     /// </summary>
     public class Versionizer : ICommandLineInterface
     {
-        #region Constants and Fields
-
-        /// <summary>
-        /// Represents the dictionary used to store the processed definitions.
-        /// </summary>
-        private Dictionary<string, string> definitions = new Dictionary<string, string>();
-
-        #endregion
-
-        #region Properties
-
-        /// <summary>
-        /// Gets all processed definitions.
-        /// </summary>
-        public IDictionary<string, string> Definitions
-        {
-            get
-            {
-                return new Dictionary<string, string>(this.definitions);
-            }
-        }
-
-        #endregion
-
         #region Methods
 
         /// <summary>
@@ -82,11 +60,54 @@ namespace Veronique
                 Console.WriteLine("Writers: {0}", configuration.Writers.Count);
                 Console.WriteLine();
 
-                foreach (Definition definition in configuration.Definitions)
+                using (CurrentConsoleColor color = new CurrentConsoleColor(ConsoleColor.Green))
                 {
-                    if (this.definitions.ContainsKey(definition.Name.ToLowerInvariant()))
+                    Console.WriteLine("Processing definitions");
+                }
+
+                IDictionary<string, string> definitions = this.ProcessDefinitions(configuration.Definitions);
+
+                using (CurrentConsoleColor color = new CurrentConsoleColor(ConsoleColor.Green))
+                {
+                    Console.WriteLine("Processing writers");
+                }
+
+                this.ProcessWriters(configuration.Writers, definitions);
+
+                return;
+            }
+            catch (ApplicationException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Error while executing Veronique for the current project", ex);
+            }
+        }
+
+        /// <summary>
+        /// Processes the given <see cref="Definition">definitions</see> and returns the values.
+        /// </summary>
+        /// <param name="definitions">The <see cref="Definition">definitions</see> that shall be processed.</param>
+        /// <returns>An <see cref="IDictionary{TKey, TValue}"/> containg the definition names and the processed values.</returns>
+        /// <exception cref="ArgumentNullException"><c>definitions</c> is null.</exception>
+        public IDictionary<string, string> ProcessDefinitions(IEnumerable<Definition> definitions)
+        {
+            if (definitions == null)
+            {
+                throw new ArgumentNullException("definitions");
+            }
+
+            Dictionary<string, string> processedDefinitions = new Dictionary<string, string>();
+
+            foreach (Definition definition in definitions)
+            {
+                try
+                {
+                    if (processedDefinitions.ContainsKey(definition.Name.ToLowerInvariant()))
                     {
-                        Console.WriteLine("Skipping definition {0} (value already set to '{1}')", definition.Name, this.definitions[definition.Name.ToLowerInvariant()]);
+                        Console.WriteLine("Skipping definition {0} (value already set to '{1}')", definition.Name, processedDefinitions[definition.Name.ToLowerInvariant()]);
                     }
                     else
                     {
@@ -98,31 +119,68 @@ namespace Veronique
                         if (definitionCommandValue != null && definitionCommandValue != string.Empty)
                         {
                             Console.WriteLine("Defition {0} processed; value: {1}", definition.Name, definitionCommandValue);
-                            this.definitions.Add(definition.Name.ToLowerInvariant(), definitionCommandValue);
+                            processedDefinitions.Add(definition.Name.ToLowerInvariant(), definitionCommandValue);
                         }
                         else
                         {
                             Console.WriteLine("Defition {0} processed; value: {1}", definition.Name, "EMPTY");
                         }
                     }
-
-                    Console.WriteLine();
                 }
-
-                foreach (Writer writer in configuration.Writers)
+                catch (Exception ex)
                 {
-                    // TODO
+                    Console.WriteLine("Skipping defition {0}; error: {1}", definition.Name, ex.Message);
+                }
+            }
+
+            return processedDefinitions;
+        }
+
+        /// <summary>
+        /// Processes the given <see cref="Writer">writers</see> using the given <see cref="Definition">definitions</see>.
+        /// </summary>
+        /// <param name="writers">The writers that shall be processed.</param>
+        /// <param name="definitions">The definitions that shall be used.</param>
+        /// <exception cref="ArgumentNullException"><c>definitions</c> is null.</exception>
+        /// <exception cref="ArgumentNullException"><c>writers</c> is null.</exception>
+        public void ProcessWriters(IEnumerable<Writer> writers, IDictionary<string, string> definitions)
+        {
+            if (definitions == null)
+            {
+                throw new ArgumentNullException("definitions");
+            }
+
+            if (writers == null)
+            {
+                throw new ArgumentNullException("writers");
+            }
+
+            foreach (Writer writer in writers)
+            {
+                Console.WriteLine("Writer: {0}", writer.Command.Name);
+
+                for (int i = 0; i < writer.Command.Parameters.Count; i++)
+                {
+                    foreach (string key in definitions.Keys)
+                    {
+                        writer.Command.Parameters[i] = writer.Command.Parameters[i].Replace(string.Format("$${0}$$", key), definitions[key]);
+                        Console.WriteLine("    {0}", writer.Command.Parameters[i]);
+                    }
                 }
 
-                return;
-            }
-            catch (ApplicationException)
-            {
-                throw;
-            }
-            catch (Exception ex)
-            {
-                throw new ApplicationException("Error while executing Veronique for the current project", ex);
+                try
+                {
+                    IWriterCommand writerCommand = WriterCommandManager.CreateByName(writer.Command.Name);
+                    writerCommand.Write(writer.Command.Parameters.ToArray());
+
+                    Console.WriteLine("Success");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Failed: {0}", ex.Message);
+                }
+
+                Console.WriteLine();
             }
         }
 
