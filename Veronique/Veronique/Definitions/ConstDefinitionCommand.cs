@@ -23,9 +23,10 @@ using System;
 namespace Veronique.Definitions
 {
     /// <summary>
-    /// Provides the ability to evaluate a definition.
+    /// Represents an implementation of the <see cref="IDefinitionCommand"/> interface returning a constant text.
     /// </summary>
-    public interface IDefinitionCommand
+    [DefinitionCommand("const")]
+    public class ConstDefinitionCommand
     {
         #region Methods
 
@@ -39,7 +40,25 @@ namespace Veronique.Definitions
         /// <exception cref="ArgumentException">The number of arguments is invalid.</exception>
         /// <exception cref="ArgumentException">An argument is invalid.</exception>
         /// <exception cref="ApplicationException">An error occured during the operation.</exception>
-        string Evaluate(string[] parameters);
+        public string Evaluate(string[] parameters)
+        {
+            if (parameters == null)
+            {
+                throw new ArgumentNullException("parameters");
+            }
+
+            if (parameters.Length != 1)
+            {
+                throw new ArgumentException("Invalid parameter count");
+            }
+
+            if (parameters[0] == null)
+            {
+                throw new ArgumentNullException("parameters[0]");
+            }
+
+            return parameters[0];
+        }
 
         #endregion
     }
