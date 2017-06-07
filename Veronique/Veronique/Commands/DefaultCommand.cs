@@ -26,7 +26,7 @@ using System.Text;
 namespace Veronique.Commands
 {
     /// <summary>
-    /// Represents an abstract base class for simple commands.
+    /// Represents an abstract base class for external commands.
     /// </summary>
     public abstract class DefaultCommand
     {
