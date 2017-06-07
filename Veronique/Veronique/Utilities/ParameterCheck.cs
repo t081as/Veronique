@@ -40,7 +40,7 @@ namespace Veronique.Utilities
         /// <exception cref="ArgumentNullException"><c>parameters</c> is null.</exception>
         /// <exception cref="ArgumentNullException">A parameter is null.</exception>
         /// <exception cref="ArgumentException">The number of arguments is invalid.</exception>
-        public static void CheckParameters(string[] parameters, uint minCount, uint maxCount)
+        public static void Check(string[] parameters, uint minCount, uint maxCount)
         {
             if (parameters == null)
             {
