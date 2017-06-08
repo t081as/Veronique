@@ -18,6 +18,7 @@
 
 #region Namespaces
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 #endregion
 
@@ -28,6 +29,37 @@ namespace Veronique.Definitions
     /// </summary>
     public static class DefinitionCommandManager
     {
+        #region Properties
+
+        /// <summary>
+        /// Gets a list of all available definition commands.
+        /// </summary>
+        public static IEnumerable<string> DefinitionCommands
+        {
+            get
+            {
+                List<string> commands = new List<string>();
+
+                foreach (Type type in Assembly.GetExecutingAssembly().GetTypes())
+                {
+                    object[] attributes = type.GetCustomAttributes(typeof(DefinitionCommandAttribute), true);
+
+                    if (attributes.Length > 0)
+                    {
+                        foreach (object attribute in attributes)
+                        {
+                            DefinitionCommandAttribute definitionCommandAttribute = (DefinitionCommandAttribute)attribute;
+                            commands.Add(definitionCommandAttribute.Command);
+                        }
+                    }
+                }
+
+                return commands;
+            }
+        }
+
+        #endregion
+
         #region Methods
 
         /// <summary>

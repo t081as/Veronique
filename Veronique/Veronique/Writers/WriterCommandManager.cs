@@ -18,6 +18,7 @@
 
 #region Namespaces
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 #endregion
 
@@ -28,6 +29,37 @@ namespace Veronique.Writers
     /// </summary>
     public static class WriterCommandManager
     {
+        #region Properties
+
+        /// <summary>
+        /// Gets a list of all available writer commands.
+        /// </summary>
+        public static IEnumerable<string> WriterCommands
+        {
+            get
+            {
+                List<string> commands = new List<string>();
+
+                foreach (Type type in Assembly.GetExecutingAssembly().GetTypes())
+                {
+                    object[] attributes = type.GetCustomAttributes(typeof(WriterCommandAttribute), true);
+
+                    if (attributes.Length > 0)
+                    {
+                        foreach (object attribute in attributes)
+                        {
+                            WriterCommandAttribute definitionCommandAttribute = (WriterCommandAttribute)attribute;
+                            commands.Add(definitionCommandAttribute.Command);
+                        }
+                    }
+                }
+
+                return commands;
+            }
+        }
+
+        #endregion
+
         #region Methods
 
         /// <summary>

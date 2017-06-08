@@ -87,9 +87,9 @@
     <EmbeddedResource Include="Help\execute.txt" />
     <EmbeddedResource Include="Help\help.txt" />
     <EmbeddedResource Include="Help\init.txt" />
-    <Content Include="Help\console.txt" />
-    <Content Include="Help\const.txt" />
-    <Content Include="Help\dump-to-file.txt" />
+    <EmbeddedResource Include="Help\console.txt" />
+    <EmbeddedResource Include="Help\const.txt" />
+    <EmbeddedResource Include="Help\dump-to-file.txt" />
     <Content Include="Veronique.ico" />
   </ItemGroup>
   <ItemGroup>

@@ -18,6 +18,7 @@
 
 #region Namespaces
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -30,6 +31,39 @@ namespace Veronique
     /// </summary>
     public class HelpProvider : ICommandLineInterface
     {
+        #region Properties
+
+        /// <summary>
+        /// Gets the list of available help topics.
+        /// </summary>
+        public IEnumerable<string> HelpTopics
+        {
+            get
+            {
+                List<string> topics = new List<string>();
+
+                string[] resourceNames = Assembly.GetExecutingAssembly().GetManifestResourceNames();
+
+                Array.Sort(resourceNames);
+
+                foreach (string resourceName in resourceNames)
+                {
+                    string[] resourceNameParts = resourceName.Split('.');
+
+                    if (resourceNameParts.Length == 4 &&
+                        resourceNameParts[3].ToLowerInvariant().Trim() == "txt" &&
+                        resourceNameParts[1].ToLowerInvariant().Trim() == "help")
+                    {
+                        topics.Add(resourceNameParts[2]);
+                    }
+                }
+
+                return topics;
+            }
+        }
+
+        #endregion
+
         #region Methods
 
         /// <summary>
@@ -67,24 +101,28 @@ namespace Veronique
         }
 
         /// <summary>
+        /// Reads the given help topic and returns it.
+        /// </summary>
+        /// <param name="topic">The name of the help topic that shall be read.</param>
+        /// <returns>The help topic that has been read.</returns>
+        /// <exception cref="ArgumentNullException"><c>topic</c> is null.</exception>
+        public string ReadHelpTopic(string topic)
+        {
+            using (Stream helpTopicStream = Assembly.GetExecutingAssembly().GetManifestResourceStream($"Veronique.Help.{topic}.txt"))
+            {
+                StreamReader reader = new StreamReader(helpTopicStream, Encoding.UTF8);
+                return reader.ReadToEnd();
+            }
+        }
+
+        /// <summary>
         /// Shows the list of all available help topics.
         /// </summary>
         private void ShowHelpList()
         {
-            string[] resourceNames = Assembly.GetExecutingAssembly().GetManifestResourceNames();
-
-            Array.Sort(resourceNames);
-
-            foreach (string resourceName in resourceNames)
+            foreach (string topic in this.HelpTopics)
             {
-                string[] resourceNameParts = resourceName.Split('.');
-
-                if (resourceNameParts.Length == 4 &&
-                    resourceNameParts[3].ToLowerInvariant().Trim() == "txt" &&
-                    resourceNameParts[1].ToLowerInvariant().Trim() == "help")
-                {
-                    Console.WriteLine(resourceNameParts[2]);
-                }
+                Console.WriteLine(topic);
             }
         }
 
@@ -94,11 +132,7 @@ namespace Veronique
         /// <param name="topic">The help topic that shall be shown.</param>
         private void ShowHelpTopic(string topic)
         {
-            using (Stream helpTopicStream = Assembly.GetExecutingAssembly().GetManifestResourceStream($"Veronique.Help.{topic}.txt"))
-            {
-                StreamReader reader = new StreamReader(helpTopicStream, Encoding.UTF8);
-                Console.WriteLine(reader.ReadToEnd());
-            }
+            Console.WriteLine(this.ReadHelpTopic(topic));
         }
 
         #endregion
