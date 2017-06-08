@@ -27,7 +27,7 @@ namespace Veronique.Utilities
     /// <summary>
     /// Represents a class containing methods to check the prameters of an <see cref="IDefinitionCommand"/> or <see cref="IWriterCommand"/> implementation.
     /// </summary>
-    public static class ParameterCheck
+    public static class Parameter
     {
         #region Methods
 

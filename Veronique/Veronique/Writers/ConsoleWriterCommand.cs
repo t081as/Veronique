@@ -42,7 +42,7 @@ namespace Veronique.Writers
         /// <exception cref="ApplicationException">An error occured during the operation.</exception>
         public void Write(string[] parameters)
         {
-            ParameterCheck.Check(parameters, 1, 1);
+            Parameter.Check(parameters, 1, 1);
 
             Console.WriteLine(parameters[0]);
         }

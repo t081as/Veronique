@@ -43,7 +43,7 @@ namespace Veronique.Definitions
         /// <exception cref="ApplicationException">An error occured during the operation.</exception>
         public string Evaluate(string[] parameters)
         {
-            ParameterCheck.Check(parameters, 1, 1);
+            Parameter.Check(parameters, 1, 1);
 
             return parameters[0];
         }
