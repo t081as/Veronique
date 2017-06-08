@@ -75,7 +75,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Utilities\CurrentConsoleColor.cs" />
-    <Compile Include="Utilities\ParameterCheck.cs" />
+    <Compile Include="Utilities\Parameter.cs" />
     <Compile Include="Versionizer.cs" />
     <Compile Include="Writers\ConsoleWriterCommand.cs" />
     <Compile Include="Writers\IWriterCommand.cs" />
@@ -83,11 +83,13 @@
     <Compile Include="Writers\WriterCommandManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Writers\DumpToFileWriterCommand.cs" />
     <EmbeddedResource Include="Help\execute.txt" />
     <EmbeddedResource Include="Help\help.txt" />
     <EmbeddedResource Include="Help\init.txt" />
     <Content Include="Help\console.txt" />
     <Content Include="Help\const.txt" />
+    <Content Include="Help\dump-to-file.txt" />
     <Content Include="Veronique.ico" />
   </ItemGroup>
   <ItemGroup>

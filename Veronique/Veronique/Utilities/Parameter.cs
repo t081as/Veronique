@@ -18,6 +18,7 @@
 
 #region Namespaces
 using System;
+using System.IO;
 using Veronique.Definitions;
 using Veronique.Writers;
 #endregion
@@ -59,6 +60,22 @@ namespace Veronique.Utilities
             {
                 throw new ArgumentException("Invalid parameter count");
             }
+        }
+
+        /// <summary>
+        /// Converts the path to a platform-specific path.
+        /// </summary>
+        /// <param name="path">The path that shall be converted.</param>
+        /// <returns>A platform-specific path.</returns>
+        /// <exception cref="ArgumentNullException"><c>path</c> is null.</exception>
+        public static string ToPlatformSpecificPath(string path)
+        {
+            if (path == null)
+            {
+                throw new ArgumentNullException("path");
+            }
+
+            return path.Replace('/', Path.DirectorySeparatorChar);
         }
 
         #endregion
