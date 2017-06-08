@@ -1,0 +1,20 @@
+﻿CONSOLE
+
+TYPE
+Writer
+
+JSON
+{
+	"command":
+	{
+		"name":"console",
+		"parameters":["Version %MyVar%"]
+	}
+}
+
+PARAMETERS
+text:
+The text that shall be written to the standard console output.
+
+DESCRIPTION
+Writes the given text to the standard console output.

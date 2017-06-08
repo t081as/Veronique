@@ -18,14 +18,16 @@
 
 #region Namespaces
 using System;
+using Veronique.Utilities;
 #endregion
 
 namespace Veronique.Writers
 {
     /// <summary>
-    /// Provides the ability to write a definition based variable to a destination.
+    /// Represents an implementation of the <see cref="IWriterCommand"/> interface writing to the standard console output.
     /// </summary>
-    public interface IWriterCommand
+    [WriterCommand("console")]
+    public class ConsoleWriterCommand : IWriterCommand
     {
         #region Methods
 
@@ -38,7 +40,12 @@ namespace Veronique.Writers
         /// <exception cref="ArgumentException">The number of arguments is invalid.</exception>
         /// <exception cref="ArgumentException">An argument is invalid.</exception>
         /// <exception cref="ApplicationException">An error occured during the operation.</exception>
-        void Write(string[] parameters);
+        public void Write(string[] parameters)
+        {
+            ParameterCheck.Check(parameters, 1, 1);
+
+            Console.WriteLine(parameters[0]);
+        }
 
         #endregion
     }

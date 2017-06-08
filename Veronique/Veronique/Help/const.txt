@@ -15,7 +15,7 @@ JSON
 
 PARAMETERS
 text:
-The constant string that shall be returned.
+The constant text that shall be returned.
 
 DESCRIPTION
-Returns a constant string.
+Returns a constant text.
