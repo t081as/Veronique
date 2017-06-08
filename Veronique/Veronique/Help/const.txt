@@ -1,0 +1,21 @@
+﻿CONST
+
+TYPE
+Definition
+
+JSON
+{
+    "name":"MyVar",
+    "command":
+    {
+		"name":"const",
+		"parameters":["MyText"]
+    }
+}
+
+PARAMETERS
+text:
+The constant string that shall be returned.
+
+DESCRIPTION
+Returns a constant string.
