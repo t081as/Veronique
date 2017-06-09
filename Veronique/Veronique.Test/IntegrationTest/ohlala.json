@@ -1,0 +1,42 @@
+{
+  "projectname":"IntegrationTest",
+  "formatversion":"v1",
+  
+  "definitions":
+  [
+    {
+      "name": "MyVar",
+      "command": 
+      {
+        "name": "const",
+        "parameters": [ "0.1" ]
+      }
+    },
+    {
+      "name":"MyVar",
+      "command":
+      {
+        "name":"const",
+        "parameters": ["0.2"]
+      }
+    }
+  ],
+  
+  "writers":
+  [
+    {
+      "command": 
+      {
+        "name": "console",
+        "parameters": ["Version $$MyVar$$"]
+      }
+    },
+    {
+      "command":
+      {
+        "name":"dump-to-file",
+        "parameters": ["Integration-Test.txt","Version $$MyVar$$"]
+      }
+    }
+  ]
+}

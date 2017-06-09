@@ -105,9 +105,9 @@ namespace Veronique
             {
                 try
                 {
-                    if (processedDefinitions.ContainsKey(definition.Name.ToLowerInvariant()))
+                    if (processedDefinitions.ContainsKey(definition.Name))
                     {
-                        Console.WriteLine("Skipping definition {0} (value already set to '{1}')", definition.Name, processedDefinitions[definition.Name.ToLowerInvariant()]);
+                        Console.WriteLine("Skipping definition {0} (value already set to '{1}')", definition.Name, processedDefinitions[definition.Name]);
                     }
                     else
                     {
@@ -119,7 +119,7 @@ namespace Veronique
                         if (definitionCommandValue != null && definitionCommandValue != string.Empty)
                         {
                             Console.WriteLine("Defition {0} processed; value: {1}", definition.Name, definitionCommandValue);
-                            processedDefinitions.Add(definition.Name.ToLowerInvariant(), definitionCommandValue);
+                            processedDefinitions.Add(definition.Name, definitionCommandValue);
                         }
                         else
                         {

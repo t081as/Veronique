@@ -27,7 +27,7 @@ namespace Veronique.Definitions
     /// Represents an implementation of the <see cref="IDefinitionCommand"/> interface returning a constant text.
     /// </summary>
     [DefinitionCommand("const")]
-    public class ConstDefinitionCommand
+    public class ConstDefinitionCommand : IDefinitionCommand
     {
         #region Methods
 

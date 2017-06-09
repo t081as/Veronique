@@ -52,7 +52,7 @@ namespace Veronique
 
                 Definition definition = new Definition();
                 definition.Name = "MyVar";
-                definition.Command.Name = "static";
+                definition.Command.Name = "const";
                 definition.Command.Parameters.Add("0.1");
 
                 Writer writer = new Writer();
