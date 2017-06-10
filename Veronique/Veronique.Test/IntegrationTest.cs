@@ -60,7 +60,7 @@ namespace Veronique.Test
         public void ExecuteTest()
         {
             string currentWorkingDirectory = Environment.CurrentDirectory;
-            Environment.CurrentDirectory = Path.Combine(new FileInfo(Assembly.GetExecutingAssembly().Location).DirectoryName, "IntegrationTest");
+            Environment.CurrentDirectory = Path.Combine(new FileInfo(Assembly.GetExecutingAssembly().Location).DirectoryName, "TestFiles");
             string expectedFile = Path.Combine(Environment.CurrentDirectory, "Integration-Test.txt");
 
             Console.WriteLine($"Setting directory to '{Environment.CurrentDirectory}' (original: '{currentWorkingDirectory}')");

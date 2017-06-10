@@ -58,7 +58,7 @@
     <None Include="..\Veronique.ruleset">
       <Link>Veronique.ruleset</Link>
     </None>
-    <None Include="IntegrationTest\ohlala.json">
+    <None Include="TestFiles\ohlala.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
@@ -77,7 +77,9 @@
       <Name>Veronique</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="IO\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
