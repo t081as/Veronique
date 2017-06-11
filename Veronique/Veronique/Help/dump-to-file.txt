@@ -8,7 +8,7 @@ JSON
 	"command":
 	{
 		"name":"dump-to-file",
-		"parameters":["./test.txt", "MyVersionNumberWrittenToFile"]
+		"parameters":["./test.txt", "Version $$MyVar$$"]
 	}
 }
 

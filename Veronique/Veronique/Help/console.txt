@@ -8,7 +8,7 @@ JSON
 	"command":
 	{
 		"name":"console",
-		"parameters":["Version %MyVar%"]
+		"parameters":["Version $$MyVar$$"]
 	}
 }
 
