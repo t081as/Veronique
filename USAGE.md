@@ -71,7 +71,7 @@ The following example has been taken from the integration unit test:
       ]
     }
 
-This file contains two definitions of the variable `MyVar`. Keep in mind that subsequent definitions of an identical variable will only be executed if the value is still empty (e.g. the first definition tried to read from a environment variable that does not exist).
+This file contains two definitions of the variable `MyVar`. Keep in mind that subsequent definitions of an identical variable will only be executed if the value is still empty (e.g. the first definition tried to read from an environment variable that does not exist).
 This example uses the command `const`for both definitions; the list of available definition commands and their parameters is available at the end of this file; you may also use the command line `veronique help COMMAND_NAME`.
 
 In this example the variable MyVar will hold the value "0.1" since the first definition command succeeded and therefore the second identical variable definition will be skipped.
