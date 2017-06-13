@@ -164,8 +164,9 @@ namespace Veronique
                     foreach (string key in definitions.Keys)
                     {
                         writer.Command.Parameters[i] = writer.Command.Parameters[i].Replace(string.Format("$${0}$$", key), definitions[key]);
-                        Console.WriteLine("    {0}", writer.Command.Parameters[i]);
                     }
+
+                    Console.WriteLine("    {0}", writer.Command.Parameters[i]);
                 }
 
                 try
