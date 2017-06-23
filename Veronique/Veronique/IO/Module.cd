@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Veronique.IO.Configuration">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Members>
+      <Field Name="definitions" Hidden="true" />
+      <Field Name="formatVersion" Hidden="true" />
+      <Field Name="projectName" Hidden="true" />
+      <Field Name="writers" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAACAAAAAgkAAAABQIAAAACAAEAAAA=</HashCode>
+      <FileName>IO\Configuration.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Definitions" />
+      <Property Name="Writers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Veronique.IO.Definition">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <Members>
+      <Field Name="command" Hidden="true" />
+      <Field Name="name" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAQAAAQEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IO\Definition.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Command" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Veronique.IO.Writer">
+    <Position X="3.25" Y="2.5" Width="1.5" />
+    <Members>
+      <Field Name="command" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IO\Writer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Command" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Veronique.IO.Command">
+    <Position X="6" Y="1.25" Width="1.5" />
+    <Members>
+      <Field Name="name" Hidden="true" />
+      <Field Name="parameters" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAIAAAACAAAA=</HashCode>
+      <FileName>IO\Command.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
