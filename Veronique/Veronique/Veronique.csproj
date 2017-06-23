@@ -97,11 +97,16 @@
       <Link>Veronique.ruleset</Link>
     </None>
     <None Include="app.config" />
+    <None Include="Commands\Module.cd" />
+    <None Include="Definitions\Module.cd" />
+    <None Include="IO\Module.cd" />
     <None Include="packages.config" />
+    <None Include="Program.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Writers\Module.cd" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
