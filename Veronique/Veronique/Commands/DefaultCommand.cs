@@ -28,7 +28,7 @@ namespace Veronique.Commands
     /// <summary>
     /// Represents an abstract base class for external commands.
     /// </summary>
-    public abstract class DefaultCommand
+    public abstract class DefaultCommand : ICommand
     {
         #region Constants and Fields
 
