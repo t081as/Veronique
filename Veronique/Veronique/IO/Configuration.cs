@@ -45,7 +45,7 @@ namespace Veronique.IO
         private string formatVersion;
 
         /// <summary>
-        /// Represents the defiitions.
+        /// Represents the definitions.
         /// </summary>
         private List<Definition> definitions;
 
@@ -108,7 +108,7 @@ namespace Veronique.IO
         }
 
         /// <summary>
-        /// Gets or sets the defiitions.
+        /// Gets or sets the definitions.
         /// </summary>
         [DataMember(Name = "definitions", Order = 2)]
         public List<Definition> Definitions
