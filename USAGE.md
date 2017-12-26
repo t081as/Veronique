@@ -95,6 +95,7 @@ The following commands are available for definitions and writers:
 ### Definitions
 
  * [const](./Veronique/Veronique/Help/const.txt)
+ * [env-var](./Veronique/Veronique/Help/env-var.txt)
 
 ### Writers
 

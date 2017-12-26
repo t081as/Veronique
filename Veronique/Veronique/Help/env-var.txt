@@ -1,0 +1,21 @@
+﻿ENV-VAR
+
+TYPE
+Definition
+
+JSON
+{
+    "name":"MyVar",
+    "command":
+    {
+		"name":"env-var",
+		"parameters":["username"]
+    }
+}
+
+PARAMETERS
+variable name:
+The name of the environment variable that shall be returned.
+
+DESCRIPTION
+Returns the given environment variable value or EMPTY if the environment variable is not defined.

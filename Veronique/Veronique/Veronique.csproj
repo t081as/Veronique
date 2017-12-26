@@ -58,6 +58,7 @@
     <Compile Include="Definitions\ConstDefinitionCommand.cs" />
     <Compile Include="Definitions\DefinitionCommandAttribute.cs" />
     <Compile Include="Definitions\DefinitionCommandManager.cs" />
+    <Compile Include="Definitions\EnvironmentVariableDefinitionCommand.cs" />
     <Compile Include="Definitions\IDefinitionCommand.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="HelpProvider.cs" />
@@ -90,6 +91,7 @@
     <EmbeddedResource Include="Help\console.txt" />
     <EmbeddedResource Include="Help\const.txt" />
     <EmbeddedResource Include="Help\dump-to-file.txt" />
+    <EmbeddedResource Include="Help\env-var.txt" />
     <Content Include="Veronique.ico" />
   </ItemGroup>
   <ItemGroup>
