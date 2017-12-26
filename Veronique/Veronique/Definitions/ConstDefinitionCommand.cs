@@ -41,6 +41,11 @@ namespace Veronique.Definitions
         /// <exception cref="ArgumentException">The number of arguments is invalid.</exception>
         /// <exception cref="ArgumentException">An argument is invalid.</exception>
         /// <exception cref="ApplicationException">An error occured during the operation.</exception>
+        /// <remarks>
+        /// If this method returns <c>null</c> or <see cref="string.Empty"/> the variable defined
+        /// will contain the value <c>EMPTY</c> and subsequent definitions of the identical
+        /// variable will be executed.
+        /// </remarks>
         public string Evaluate(string[] parameters)
         {
             Parameter.Check(parameters, 1, 1);

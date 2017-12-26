@@ -39,6 +39,10 @@ namespace Veronique.Definitions
         /// <exception cref="ArgumentException">The number of arguments is invalid.</exception>
         /// <exception cref="ArgumentException">An argument is invalid.</exception>
         /// <exception cref="ApplicationException">An error occured during the operation.</exception>
+        /// <remarks>
+        /// If this method returns <c>null</c> or <see cref="string.Empty"/> the variable defined
+        /// will contain the value <c>EMPTY</c>; subsequent definitions will be executed.
+        /// </remarks>
         string Evaluate(string[] parameters);
 
         #endregion
