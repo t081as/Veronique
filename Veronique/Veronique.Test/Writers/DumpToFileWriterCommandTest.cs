@@ -38,10 +38,11 @@ namespace Veronique.Test.Writers
         [Test]
         public void TestWriter()
         {
+            string testFileName = Path.Combine(new FileInfo(System.Reflection.Assembly.GetExecutingAssembly().Location).DirectoryName, "DumpTest.txt");
             IWriterCommand test = WriterCommandManager.CreateByName("dump-to-file");
-            test.Write(new string[] { "DumpTest.txt", "V1-2" });
+            test.Write(new string[] { testFileName, "V1-2" });
 
-            string contents = File.ReadAllText("DumpTest.txt");
+            string contents = File.ReadAllText(testFileName);
 
             Assert.That(contents == "V1-2", "Incorrect file contents");
         }
