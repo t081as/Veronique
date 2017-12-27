@@ -1,4 +1,4 @@
-## 0.2 (XXXX-XX-XX)
+## 0.1.X (XXXX-XX-XX)
 
 - New definition: environment variable (env-var)
 

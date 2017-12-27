@@ -18,6 +18,7 @@
 
 #region Namespaces
 using System.Collections.Generic;
+using System.IO;
 using NUnit.Framework;
 using Veronique.Definitions;
 using Veronique.Writers;
@@ -58,6 +59,27 @@ namespace Veronique.Test
             foreach (string command in WriterCommandManager.WriterCommands)
             {
                 Assert.That(helpTopics.Contains(command), $"Writer {command}: no documentation found");
+            }
+        }
+
+        /// <summary>
+        /// Checks if all implementations of <see cref="IWriterCommand"/> and <see cref="IDefinitionCommand"/> are documented
+        /// correctly in the file USAGE.md.
+        /// </summary>
+        [Test]
+        public void CheckUsageDocumentation()
+        {
+            string documentation = File.ReadAllText("USAGE.md");
+            List<string> commands = new List<string>();
+            commands.AddRange(DefinitionCommandManager.DefinitionCommands);
+            commands.AddRange(WriterCommandManager.WriterCommands);
+
+            foreach (string command in commands)
+            {
+                bool listEntryExists = documentation.Contains($"[{command}]");
+                bool linkExists = documentation.Contains($"/Help/{command}.txt");
+
+                Assert.That(listEntryExists && linkExists, $"Documentation in file USAGE.md incorrect: {command}");
             }
         }
 

@@ -95,6 +95,26 @@
     <Content Include="Veronique.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\CHANGELOG.md">
+      <Link>CHANGELOG.md</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\CONTRIBUTING.md">
+      <Link>CONTRIBUTING.md</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\LICENSE.md">
+      <Link>LICENSE.md</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\README.md">
+      <Link>README.md</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\USAGE.md">
+      <Link>USAGE.md</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="..\Veronique.ruleset">
       <Link>Veronique.ruleset</Link>
     </None>
