@@ -1,6 +1,7 @@
 ## 0.1.X (XXXX-XX-XX)
 
 - New definition: environment variable (env-var)
+- New definition: git tag, commits, shasum (git-tag)
 
 ## 0.1 (2017-06-13)
 

@@ -54,11 +54,13 @@
   <ItemGroup>
     <Compile Include="CommandAttribute.cs" />
     <Compile Include="Commands\DefaultCommand.cs" />
+    <Compile Include="Commands\GitDescribeCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Definitions\ConstDefinitionCommand.cs" />
     <Compile Include="Definitions\DefinitionCommandAttribute.cs" />
     <Compile Include="Definitions\DefinitionCommandManager.cs" />
     <Compile Include="Definitions\EnvironmentVariableDefinitionCommand.cs" />
+    <Compile Include="Definitions\GitTagDefinitionCommand.cs" />
     <Compile Include="Definitions\IDefinitionCommand.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="HelpProvider.cs" />
@@ -92,6 +94,7 @@
     <EmbeddedResource Include="Help\const.txt" />
     <EmbeddedResource Include="Help\dump-to-file.txt" />
     <EmbeddedResource Include="Help\env-var.txt" />
+    <EmbeddedResource Include="Help\git-tag.txt" />
     <Content Include="Veronique.ico" />
   </ItemGroup>
   <ItemGroup>

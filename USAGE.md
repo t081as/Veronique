@@ -96,6 +96,7 @@ The following commands are available for definitions and writers:
 
  * [const](./Veronique/Veronique/Help/const.txt)
  * [env-var](./Veronique/Veronique/Help/env-var.txt)
+ * [git-tag](./Veronique/Veronique/Help/git-tag.txt)
 
 ### Writers
 

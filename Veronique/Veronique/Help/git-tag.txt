@@ -1,0 +1,58 @@
+﻿GIT-TAG
+
+TYPE
+Definition
+
+JSON
+{
+    "name":"MyVar",
+    "command":
+    {
+		"name":"git-tag",
+		"parameters":["shasum"]
+    }
+}
+
+PARAMETERS
+part:
+The part of the git tag that shall be returned. Possible values:
+- major
+- minor
+- revision
+- commits
+- shasum
+
+DESCRIPTION
+Returns the defined part of a git tag for the project directory using the *git describe* command.
+
+major:
+Returns the first number in the tag.
+
+minor:
+Returns the second number in the tag.
+
+revision:
+Returns the third number in the tag.
+
+commits:
+Returns the number of commits since the last tag.
+
+shasum:
+Returns the shasum of the project directory.
+
+EXAMPLE:
+bla-1-b7b40112
+
+    major: EMPTY
+    minor: EMPTY
+    revision: EMPTY
+    commits: 1
+    shasum: b7b40112
+
+v0.1-2-g5b40112
+
+    major: 0
+    minor: 1
+    revision: EMPTY
+    commits: 2
+    shasum: g5b40112

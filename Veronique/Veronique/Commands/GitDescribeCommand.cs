@@ -17,33 +17,24 @@
 #endregion
 
 #region Namespaces
-using System.Collections.Generic;
-using System.IO;
 #endregion
 
 namespace Veronique.Commands
 {
     /// <summary>
-    /// Provides the ability to execute an external command and return the output of the command.
+    /// Executes the git describe command.
     /// </summary>
-    public interface ICommand
+    public class GitDescribeCommand : DefaultCommand
     {
-        #region Methods
+        #region Constructors and Destructors
 
         /// <summary>
-        /// Executes the command and returns the output.
+        /// Initializes a new instance of the <see cref="GitDescribeCommand"/> class.
         /// </summary>
-        /// <returns>The output of the external command.</returns>
-        /// <exception cref="IOException">An error occured while executing the external command.</exception>
-        string Execute();
-
-        /// <summary>
-        /// Executes the command and returns the output.
-        /// </summary>
-        /// <param name="arguments">The arguments that shall be given to the external application.</param>
-        /// <returns>The output of the external command.</returns>
-        /// <exception cref="IOException">An error occured while executing the external command.</exception>
-        string Execute(IEnumerable<string> arguments);
+        public GitDescribeCommand()
+            : base("git", "describe")
+        {
+        }
 
         #endregion
     }

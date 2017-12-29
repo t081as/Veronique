@@ -1,4 +1,4 @@
-image: mono:4.6.0.245
+image: mono:latest
 
 stages:
     - build
@@ -11,10 +11,13 @@ release:
     stage: build
     only:
         - tags
+        - master
     artifacts:
+        name: "Veronique-${CI_COMMIT_TAG}"
         paths:
           - Veronique.exe
           - LICENSE.md
+          - USAGE.md
           - CHANGELOG.md
           - AUTHORS.txt
     script:
@@ -28,10 +31,12 @@ ci-release:
     except:
         - tags
     artifacts:
+        name: "Veronique-${CI_JOB_NAME}-${CI_COMMIT_SHA}"
         expire_in: 4 weeks
         paths:
           - Veronique.exe
           - LICENSE.md
+          - USAGE.md
           - CHANGELOG.md
           - AUTHORS.txt
     script:
@@ -41,6 +46,7 @@ ci-release:
 ci-debug:
     stage: test
     artifacts:
+        name: "Veronique-${CI_JOB_NAME}-${CI_COMMIT_SHA}"
         expire_in: 1 week
         paths:
           - Build/Debug/Veronique.Test.dll

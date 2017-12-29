@@ -18,8 +18,10 @@
 
 #region Namespaces
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text;
 #endregion
 
@@ -95,12 +97,35 @@ namespace Veronique.Commands
         /// <exception cref="IOException">An error occured while executing the external command.</exception>
         public string Execute()
         {
+            return this.Execute(new List<string>());
+        }
+
+        /// <summary>
+        /// Executes the command and returns the output.
+        /// </summary>
+        /// <param name="arguments">The arguments that shall be given to the external application.</param>
+        /// <returns>The output of the external command.</returns>
+        /// <exception cref="IOException">An error occured while executing the external command.</exception>
+        public string Execute(IEnumerable<string> arguments)
+        {
+            StringBuilder commandLineBuilder = new StringBuilder();
+            commandLineBuilder.Append(this.commandLine);
+
+            if (arguments.Count() > 0)
+            {
+                foreach (string argument in arguments)
+                {
+                    commandLineBuilder.Append(" ");
+                    commandLineBuilder.Append(argument);
+                }
+            }
+
             try
             {
                 Process process = new Process();
 
                 process.StartInfo.FileName = this.command;
-                process.StartInfo.Arguments = this.commandLine;
+                process.StartInfo.Arguments = commandLineBuilder.ToString().Trim();
                 process.StartInfo.WorkingDirectory = Environment.CurrentDirectory;
 
                 process.StartInfo.UseShellExecute = false;
@@ -129,7 +154,7 @@ namespace Veronique.Commands
             }
             catch (Exception ex)
             {
-                throw new IOException($"Error while executing the {this.command}-command", ex);
+                throw new IOException($"Error while executing the {this.command}-command: {ex.Message}", ex);
             }
         }
 

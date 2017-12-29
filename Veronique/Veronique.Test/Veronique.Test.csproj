@@ -47,8 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\SimpleCommandMock.cs" />
     <Compile Include="Definitions\ConstDefinitionCommandTest.cs" />
     <Compile Include="Definitions\EnvironmentVariableDefinitionCommandTest.cs" />
+    <Compile Include="Definitions\GitTagDefinitionCommandTest.cs" />
     <Compile Include="DocumentationTest.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="IntegrationTest.cs" />
