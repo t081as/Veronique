@@ -1,5 +1,6 @@
 ## 0.1.X (XXXX-XX-XX)
 
+- New project filenames: *veronique.json* or *.veronique.json*
 - New definition: environment variable (env-var)
 - New definition: git tag, commits, shasum (git-tag)
 
