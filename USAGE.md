@@ -22,7 +22,7 @@ Veronique is a simple yet powerful tool to determine a version number from diffe
 
 Each project is configured using a simple configuration file in [json format](https://en.wikipedia.org/wiki/JSON).
 You can copy an existing file or use `veronique init` to create an empty configuration file.
-The configuration file must be named `ohlala.json`.
+The configuration file must be named `veronique.json` (or `.veronique.json`).
 
 ### Example
 
@@ -86,7 +86,7 @@ If a parameter of a writer command contains a reference to a defined variable (e
 
 ## Build
 
-Switch to the directory that contains the configuration file `ohlala.json`. Call `veronique execute` to execute the configuration.
+Switch to the directory that contains the configuration file `veronique.json`. Call `veronique execute` to execute the configuration.
 
 ## Commands
 

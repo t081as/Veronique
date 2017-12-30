@@ -62,7 +62,7 @@
     <None Include="..\Veronique.ruleset">
       <Link>Veronique.ruleset</Link>
     </None>
-    <None Include="TestFiles\ohlala.json">
+    <None Include="TestFiles\veronique.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

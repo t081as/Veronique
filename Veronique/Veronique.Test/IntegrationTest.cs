@@ -41,7 +41,7 @@ namespace Veronique.Test
         {
             string currentWorkingDirectory = Environment.CurrentDirectory;
             Environment.CurrentDirectory = new FileInfo(Assembly.GetExecutingAssembly().Location).DirectoryName;
-            string expectedFile = Path.Combine(Environment.CurrentDirectory, "ohlala.json");
+            string expectedFile = Path.Combine(Environment.CurrentDirectory, "veronique.json");
 
             Console.WriteLine($"Setting directory to '{Environment.CurrentDirectory}' (original: '{currentWorkingDirectory}')");
 

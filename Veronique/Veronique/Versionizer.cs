@@ -22,7 +22,6 @@ using System.Collections.Generic;
 using System.IO;
 using Veronique.Definitions;
 using Veronique.IO;
-using Veronique.Properties;
 using Veronique.Utilities;
 using Veronique.Writers;
 #endregion
@@ -44,13 +43,28 @@ namespace Veronique
         /// <exception cref="ApplicationException">An error occured while executing the command.</exception>
         public void Execute(string[] args)
         {
+            List<string> fileNames = new List<string>();
+            fileNames.Add("veronique.json");
+            fileNames.Add(".veronique.json");
+
             try
             {
-                string fileName = Path.Combine(Environment.CurrentDirectory, Settings.Default.ConfigurationFileName);
+                string fileName = string.Empty;
 
-                if (!File.Exists(fileName))
+                foreach (string currentFileName in fileNames)
                 {
-                    throw new ApplicationException($"Configuration file '{fileName}' not found");
+                    string tempFileName = Path.Combine(Environment.CurrentDirectory, currentFileName);
+
+                    if (File.Exists(tempFileName))
+                    {
+                        fileName = tempFileName;
+                        break;
+                    }
+                }
+
+                if (fileName == null || fileName == string.Empty)
+                {
+                    throw new ApplicationException($"Configuration file not found in current working directory '{Environment.CurrentDirectory}'");
                 }
 
                 Configuration configuration = Configuration.Read(File.OpenRead(fileName));

@@ -39,7 +39,7 @@ namespace Veronique.Test.IO
         [Test]
         public void ReadConfigurationTest()
         {
-            Configuration config = Configuration.Read(File.OpenRead(Path.Combine(new FileInfo(Assembly.GetExecutingAssembly().Location).DirectoryName, "TestFiles", "ohlala.json")));
+            Configuration config = Configuration.Read(File.OpenRead(Path.Combine(new FileInfo(Assembly.GetExecutingAssembly().Location).DirectoryName, "TestFiles", "veronique.json")));
 
             Assert.That(config.FormatVersion == "v1", "Incorrect format");
             Assert.That(config.Definitions.Count == 2, "Incorrect definition count");

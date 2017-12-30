@@ -19,10 +19,7 @@
 #region Namespaces
 using System;
 using System.IO;
-using System.Reflection;
-using System.Text;
 using Veronique.IO;
-using Veronique.Properties;
 #endregion
 
 namespace Veronique
@@ -43,7 +40,7 @@ namespace Veronique
         {
             try
             {
-                string fileName = Path.Combine(Environment.CurrentDirectory, Settings.Default.ConfigurationFileName);
+                string fileName = Path.Combine(Environment.CurrentDirectory, "veronique.json");
 
                 if (File.Exists(fileName))
                 {
