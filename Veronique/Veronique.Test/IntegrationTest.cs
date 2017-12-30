@@ -43,6 +43,11 @@ namespace Veronique.Test
             Environment.CurrentDirectory = new FileInfo(Assembly.GetExecutingAssembly().Location).DirectoryName;
             string expectedFile = Path.Combine(Environment.CurrentDirectory, "veronique.json");
 
+            if (File.Exists(expectedFile))
+            {
+                File.Delete(expectedFile);
+            }
+
             Console.WriteLine($"Setting directory to '{Environment.CurrentDirectory}' (original: '{currentWorkingDirectory}')");
 
             string[] args = new string[1] { "init" };
