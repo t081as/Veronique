@@ -21,6 +21,7 @@ using System;
 using System.IO;
 using System.Reflection;
 using NUnit.Framework;
+using Veronique.IO;
 #endregion
 
 namespace Veronique.Test
@@ -41,14 +42,13 @@ namespace Veronique.Test
         {
             string currentWorkingDirectory = Environment.CurrentDirectory;
             Environment.CurrentDirectory = new FileInfo(Assembly.GetExecutingAssembly().Location).DirectoryName;
-            string expectedFile = Path.Combine(Environment.CurrentDirectory, "veronique.json");
+            Console.WriteLine($"Setting directory to '{Environment.CurrentDirectory}' (original: '{currentWorkingDirectory}')");
 
+            string expectedFile = Path.Combine(Environment.CurrentDirectory, "veronique.json");
             if (File.Exists(expectedFile))
             {
                 File.Delete(expectedFile);
             }
-
-            Console.WriteLine($"Setting directory to '{Environment.CurrentDirectory}' (original: '{currentWorkingDirectory}')");
 
             string[] args = new string[1] { "init" };
             Program.Main(args);
@@ -56,6 +56,8 @@ namespace Veronique.Test
             Environment.CurrentDirectory = currentWorkingDirectory;
 
             Assert.That(File.Exists(expectedFile), $"File '{expectedFile}' does not exist");
+
+            Configuration config = Configuration.Read(File.Open(expectedFile, FileMode.Open));
         }
 
         /// <summary>

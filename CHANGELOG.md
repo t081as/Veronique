@@ -1,6 +1,7 @@
 ## 0.1.X (XXXX-XX-XX)
 
 - New project filenames: *veronique.json* or *.veronique.json*
+- Project configuration file created the the *init* command will now be properly indented
 - New definition: environment variable (env-var)
 - New definition: git tag, commits, shasum (git-tag)
 

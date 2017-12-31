@@ -19,9 +19,14 @@
 #region Namespaces
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
+using System.Reflection;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
+using System.Text;
+using System.Threading;
+using System.Xml;
 #endregion
 
 namespace Veronique.IO
@@ -150,10 +155,29 @@ namespace Veronique.IO
         /// </summary>
         /// <param name="stream">The stream the configuration shall be writen to.</param>
         /// <param name="configuration">The configuration that shall be written.</param>
+        /// <exception cref="IOException">Error while writing the configuration.</exception>
         public static void Write(Stream stream, Configuration configuration)
         {
-            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(Configuration));
-            serializer.WriteObject(stream, configuration);
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentCulture;
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+
+            try
+            {
+                using (XmlDictionaryWriter writer = JsonReaderWriterFactory.CreateJsonWriter(stream, new UTF8Encoding(false), false, true, " "))
+                {
+                    DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(Configuration));
+                    serializer.WriteObject(writer, configuration);
+                    writer.Flush();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new IOException("Error while writing the configuration", ex);
+            }
+            finally
+            {
+                Thread.CurrentThread.CurrentCulture = currentCulture;
+            }
         }
 
         /// <summary>
@@ -161,10 +185,18 @@ namespace Veronique.IO
         /// </summary>
         /// <param name="stream">The stream that contains a configuration.</param>
         /// <returns>The configuration read from the given stream.</returns>
+        /// <exception cref="IOException">Error while reading the configuration.</exception>
         public static Configuration Read(Stream stream)
         {
-            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(Configuration));
-            return (Configuration)serializer.ReadObject(stream);
+            try
+            {
+                DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(Configuration));
+                return (Configuration)serializer.ReadObject(stream);
+            }
+            catch (Exception ex)
+            {
+                throw new IOException("Error while reading the configuration", ex);
+            }
         }
 
         #endregion
