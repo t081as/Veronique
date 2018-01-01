@@ -1,3 +1,7 @@
+## 0.3.X (XXXX-XX-XX)
+
+- New definition: unique build number (build-number)
+
 ## 0.3 (2017-12-31)
 
 - New project filenames: *veronique.json* or *.veronique.json*

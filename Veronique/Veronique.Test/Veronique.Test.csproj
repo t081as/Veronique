@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\SimpleCommandMock.cs" />
+    <Compile Include="Definitions\BuildNumberDefinitionCommandTest.cs" />
     <Compile Include="Definitions\ConstDefinitionCommandTest.cs" />
     <Compile Include="Definitions\EnvironmentVariableDefinitionCommandTest.cs" />
     <Compile Include="Definitions\GitTagDefinitionCommandTest.cs" />

@@ -56,6 +56,7 @@
     <Compile Include="Commands\DefaultCommand.cs" />
     <Compile Include="Commands\GitDescribeCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Definitions\BuildNumberDefinitionCommand.cs" />
     <Compile Include="Definitions\ConstDefinitionCommand.cs" />
     <Compile Include="Definitions\DefinitionCommandAttribute.cs" />
     <Compile Include="Definitions\DefinitionCommandManager.cs" />
@@ -90,6 +91,7 @@
     <EmbeddedResource Include="Help\dump-to-file.txt" />
     <EmbeddedResource Include="Help\env-var.txt" />
     <EmbeddedResource Include="Help\git-tag.txt" />
+    <EmbeddedResource Include="Help\build-number.txt" />
     <Content Include="Veronique.ico" />
   </ItemGroup>
   <ItemGroup>

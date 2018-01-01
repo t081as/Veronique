@@ -1,0 +1,20 @@
+﻿BUILD-NUMBER
+
+TYPE
+Definition
+
+JSON
+{
+    "name":"MyVar",
+    "command":
+    {
+		"name":"build-number",
+		"parameters":[]
+    }
+}
+
+PARAMETERS
+-
+
+DESCRIPTION
+Returns a unique build number that is incremented on every command execution.
