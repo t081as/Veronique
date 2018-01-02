@@ -1,6 +1,8 @@
-![YAKKA](https://gitlab.com/tobiaskoch/Veronique/raw/master/Media/Veronique-256.png)
+![VERONIQUE](https://gitlab.com/tobiaskoch/Veronique/raw/master/Media/Veronique-256.png)
 
 # VERONIQUE
+
+[![pipeline status](https://gitlab.com/tobiaskoch/Veronique/badges/master/pipeline.svg)](https://gitlab.com/tobiaskoch/Veronique/commits/master)
 
 *Ver*-**Unique**-*onique*-**Version**
 
