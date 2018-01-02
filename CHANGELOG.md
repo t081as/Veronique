@@ -1,4 +1,4 @@
-## 0.3.X (XXXX-XX-XX)
+## 0.4 (2018-01-02)
 
 - New definition: unique build number (build-number)
 - New writer: replace string in text file (replace-text)
