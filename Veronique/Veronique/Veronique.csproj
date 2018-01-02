@@ -78,6 +78,7 @@
     <Compile Include="Versionizer.cs" />
     <Compile Include="Writers\ConsoleWriterCommand.cs" />
     <Compile Include="Writers\IWriterCommand.cs" />
+    <Compile Include="Writers\ReplaceTextWriterCommand.cs" />
     <Compile Include="Writers\WriterCommandAttribute.cs" />
     <Compile Include="Writers\WriterCommandManager.cs" />
   </ItemGroup>
@@ -92,6 +93,7 @@
     <EmbeddedResource Include="Help\env-var.txt" />
     <EmbeddedResource Include="Help\git-tag.txt" />
     <EmbeddedResource Include="Help\build-number.txt" />
+    <EmbeddedResource Include="Help\replace-text.txt" />
     <Content Include="Veronique.ico" />
   </ItemGroup>
   <ItemGroup>

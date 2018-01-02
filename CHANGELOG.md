@@ -1,6 +1,7 @@
 ## 0.3.X (XXXX-XX-XX)
 
 - New definition: unique build number (build-number)
+- New writer: replace string in text file (replace-text)
 
 ## 0.3 (2017-12-31)
 

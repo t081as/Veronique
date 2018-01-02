@@ -58,6 +58,7 @@
     <Compile Include="IO\ConfigurationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Writers\DumpToFileWriterCommandTest.cs" />
+    <Compile Include="Writers\ReplaceTextWriterCommandTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Veronique.ruleset">
@@ -82,7 +83,11 @@
       <Name>Veronique</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="TestFiles\ReplaceText.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

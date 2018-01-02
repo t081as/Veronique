@@ -26,10 +26,10 @@ using Veronique.Utilities;
 namespace Veronique.Writers
 {
     /// <summary>
-    /// Represents an implementation of the <see cref="IWriterCommand"/> interface writing to a file.
+    /// Represents an implementation of the <see cref="IWriterCommand"/> interface replacing a text string in a utf8 file.
     /// </summary>
-    [WriterCommand("dump-to-file")]
-    public class DumpToFileWriterCommand : IWriterCommand
+    [WriterCommand("replace-text")]
+    public class ReplaceTextWriterCommand : IWriterCommand
     {
         #region Methods
 
@@ -44,20 +44,23 @@ namespace Veronique.Writers
         /// <exception cref="ApplicationException">An error occured during the operation.</exception>
         public void Write(string[] parameters)
         {
-            Parameter.Check(parameters, 2, 2);
+            Parameter.Check(parameters, 3, 3);
 
             try
             {
                 string fileName = Parameter.ToPlatformSpecificPath(parameters[0]);
-                string contents = parameters[1];
+                string searchText = parameters[1];
+                string replaceText = parameters[2];
 
                 Encoding utf8 = new UTF8Encoding(false);
 
-                File.WriteAllText(fileName, contents, utf8);
+                string fileContents = File.ReadAllText(fileName, utf8);
+                fileContents = fileContents.Replace(searchText, replaceText);
+                File.WriteAllText(fileName, fileContents, utf8);
             }
             catch (Exception ex)
             {
-                throw new ApplicationException("Error while writing text to file", ex);
+                throw new ApplicationException("Error while replacing text in file", ex);
             }
         }
 

@@ -1,0 +1,26 @@
+﻿REPLACE-TEXT
+
+TYPE
+Writer
+
+JSON
+{
+    "command":
+    {
+		"name":"replace-text",
+		"parameters":["./MyApp/Properties/AssemblyInfo.cs","0.0.0.0","0.1.34.0"]
+    }
+}
+
+PARAMETERS
+filename:
+The path and name of the text file (utf8) that shall be processed.
+
+text:
+The text that shall be searched.
+
+new-text:
+The new text that shall replace the searched text.
+
+DESCRIPTION
+Searches a given file in utf8 format for the given text and replaces it using the new text.

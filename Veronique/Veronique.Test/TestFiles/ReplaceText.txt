@@ -1,0 +1,3 @@
+﻿LINE1
+generic-text replace? generic-text
+LINE3
