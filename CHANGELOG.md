@@ -1,3 +1,7 @@
+## 0.4.X (XXXX-XX-XX)
+
+- New writer: replace string in text file with regular expression (replace-text-regex)
+
 ## 0.4 (2018-01-02)
 
 - New definition: unique build number (build-number)

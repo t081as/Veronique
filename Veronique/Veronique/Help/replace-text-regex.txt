@@ -1,0 +1,26 @@
+﻿REPLACE-TEXT-REGEX
+
+TYPE
+Writer
+
+JSON
+{
+    "command":
+    {
+		"name":"replace-text",
+		"parameters":["./MyApp/MyFile.txt","\d","123"]
+    }
+}
+
+PARAMETERS
+filename:
+The path and name of the text file (utf8) that shall be processed.
+
+pattern:
+The regular expression that shall be used to identify values that shall be replaced.
+
+new-text:
+The new text that shall be used to replace identified values.
+
+DESCRIPTION
+Searches a given file in utf8 format with the regular expression provided and replaces it using the new text.

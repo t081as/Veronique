@@ -98,9 +98,10 @@ The following commands are available for definitions and writers:
  * [env-var](./Veronique/Veronique/Help/env-var.txt)
  * [git-tag](./Veronique/Veronique/Help/git-tag.txt)
  * [build-number](./Veronique/Veronique/Help/build-number.txt)
- * [replace-text](./Veronique/Veronique/Help/replace-text.txt)
 
 ### Writers
 
  * [console](./Veronique/Veronique/Help/console.txt)
  * [dump-to-file](./Veronique/Veronique/Help/dump-to-file.txt)
+ * [replace-text](./Veronique/Veronique/Help/replace-text.txt)
+ * [replace-text-regex](./Veronique/Veronique/Help/replace-text-regex.txt)
