@@ -105,3 +105,4 @@ The following commands are available for definitions and writers:
  * [dump-to-file](./Veronique/Veronique/Help/dump-to-file.txt)
  * [replace-text](./Veronique/Veronique/Help/replace-text.txt)
  * [replace-text-regex](./Veronique/Veronique/Help/replace-text-regex.txt)
+ * [set-env-var](./Veronique/Veronique/Help/set-env-var.txt)
