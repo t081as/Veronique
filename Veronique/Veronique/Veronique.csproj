@@ -96,6 +96,7 @@
     <EmbeddedResource Include="Help\build-number.txt" />
     <EmbeddedResource Include="Help\replace-text.txt" />
     <EmbeddedResource Include="Help\replace-text-regex.txt" />
+    <EmbeddedResource Include="Help\set-env-var.txt" />
     <Content Include="Veronique.ico" />
   </ItemGroup>
   <ItemGroup>
