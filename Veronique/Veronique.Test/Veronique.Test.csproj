@@ -58,6 +58,7 @@
     <Compile Include="IO\ConfigurationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Writers\DumpToFileWriterCommandTest.cs" />
+    <Compile Include="Writers\EnvironmentVariableWriterCommandTest.cs" />
     <Compile Include="Writers\ReplaceTextRegexWriterCommandTest.cs" />
     <Compile Include="Writers\ReplaceTextWriterCommandTest.cs" />
   </ItemGroup>
