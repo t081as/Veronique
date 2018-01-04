@@ -1,7 +1,7 @@
 ## 0.4.X (XXXX-XX-XX)
 
 - New writer: replace string in text file with regular expression (replace-text-regex)
-- New writer: set environment variable (set-var)
+- New writer: set environment variable (set-env-var)
 
 ## 0.4 (2018-01-02)
 
