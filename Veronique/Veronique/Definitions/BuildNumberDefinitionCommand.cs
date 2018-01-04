@@ -52,7 +52,7 @@ namespace Veronique.Definitions
         /// </summary>
         public BuildNumberDefinitionCommand()
         {
-            string applicationDataDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".veronique");
+            string applicationDataDirectory = Path.Combine(Environment.CurrentDirectory, ".veronique");
 
             if (!Directory.Exists(applicationDataDirectory))
             {
