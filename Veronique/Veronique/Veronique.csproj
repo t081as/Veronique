@@ -77,6 +77,7 @@
     <Compile Include="Utilities\Parameter.cs" />
     <Compile Include="Versionizer.cs" />
     <Compile Include="Writers\ConsoleWriterCommand.cs" />
+    <Compile Include="Writers\EnvironmentVariableWriterCommand.cs" />
     <Compile Include="Writers\IWriterCommand.cs" />
     <Compile Include="Writers\ReplaceTextRegexWriterCommand.cs" />
     <Compile Include="Writers\ReplaceTextWriterCommand.cs" />
