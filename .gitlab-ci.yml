@@ -7,6 +7,10 @@ stages:
 before_script:     
     - nuget restore -NonInteractive
 
+cache:
+  paths:
+  - .veronique/
+
 release:
     stage: build
     only:
