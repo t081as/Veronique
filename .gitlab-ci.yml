@@ -7,9 +7,6 @@ stages:
 before_script:
     - apt-get -qq update
     - apt-get -yqq install git
-    - git --version
-    - nuget --version
-    - msbuild --version
     - nuget restore -NonInteractive
 
 cache:
