@@ -5,6 +5,7 @@ stages:
     - test
 
 before_script:     
+    - git --version
     - nuget restore -NonInteractive
 
 cache:
