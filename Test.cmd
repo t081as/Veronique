@@ -11,11 +11,23 @@ echo Restoring nuget packages
 nuget restore Veronique.sln
 if errorlevel 1 goto error
 
+echo Setting version number
+packages\Veronique.0.4.19\tools\Veronique
+if errorlevel 1 goto error
+
 echo Building solution (debug)
 msbuild.exe /consoleloggerparameters:ErrorsOnly /maxcpucount /nologo ^
   /property:Configuration=Debug /property:Platform="Any CPU" ^
   /verbosity:quiet ^
   Veronique.sln
+if errorlevel 1 goto error
+
+echo Cleaning up
+git checkout -- Veronique.nuspec
+if errorlevel 1 goto error
+git checkout -- Veronique/Veronique/Properties/AssemblyInfo.cs
+if errorlevel 1 goto error
+git checkout -- Veronique/Veronique.Test/Properties/AssemblyInfo.cs
 if errorlevel 1 goto error
 
 echo Running unit tests
