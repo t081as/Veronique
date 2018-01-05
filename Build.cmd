@@ -27,6 +27,8 @@ nuget pack Veronique.nuspec
 if errorlevel 1 goto error
 
 echo Cleaning up
+git checkout -- Veronique.nuspec
+if errorlevel 1 goto error
 git checkout -- Veronique/Veronique/Properties/AssemblyInfo.cs
 if errorlevel 1 goto error
 git checkout -- Veronique/Veronique.Test/Properties/AssemblyInfo.cs
