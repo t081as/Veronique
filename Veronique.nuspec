@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Veronique</id>
+    <title>Veronique</title>
+    <version>0.0.0</version>
+    <authors>Tobias Koch</authors>
+    <owners>Tobias Koch</owners>
+    <licenseUrl>https://gitlab.com/tobiaskoch/Veronique/raw/master/LICENSE.md</licenseUrl>
+    <projectUrl>https://gitlab.com/tobiaskoch/Veronique</projectUrl>
+    <iconUrl>https://gitlab.com/tobiaskoch/Veronique/raw/master/Media/Veronique-256.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>Easy versioning for software projects.</summary>
+    <description>Veronique is a simple yet powerful command line tool helping versioning your software projects automatically during the build process.</description>
+    <releaseNotes>https://gitlab.com/tobiaskoch/Veronique/raw/master/CHANGELOG.md</releaseNotes>
+    <language>en-US</language>
+    <tags>version versioning git build ci continuous integration</tags>
+    <copyright>Copyright (c) 2018 Tobias Koch</copyright>
+  </metadata>
+  <files>
+    <file src="USAGE.md" />
+    <file src="LICENSE.md" />
+    <file src="CHANGELOG.md" />
+    <file src="AUTHORS.txt" />
+    <file src="Build/Release/Veronique.exe" target="tools" />
+  </files>
+</package>
