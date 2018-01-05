@@ -44,9 +44,12 @@ ci-release:
           - USAGE.md
           - CHANGELOG.md
           - AUTHORS.txt
+          - *.nupkg
     script:
+        - mono packages/Veronique.0.4.19/tools/Veronique.exe
         - msbuild "Veronique.sln" /p:Configuration="Release" /p:Platform="Any CPU"
         - cp Build/Release/Veronique.exe Veronique.exe
+        - nuget pack Veronique.nuspec
     
 ci-debug:
     stage: test
@@ -58,5 +61,6 @@ ci-debug:
           - Build/Debug/Veronique.exe
           - Build/Debug/Veronique.TestReport.xml
     script:
+        - mono packages/Veronique.0.4.19/tools/Veronique.exe
         - msbuild "Veronique.sln" /p:Configuration="Debug" /p:Platform="Any CPU"
         - mono packages/NUnit.ConsoleRunner.3.6.0/tools/nunit3-console.exe Build/Debug/Veronique.Test.dll --work=Build/Debug/ --result=Veronique.TestReport.xml
