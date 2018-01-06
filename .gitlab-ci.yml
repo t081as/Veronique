@@ -30,6 +30,7 @@ release:
         - msbuild "Veronique.sln" /p:Configuration="Release" /p:Platform="Any CPU"
         - cp Build/Release/Veronique.exe Veronique.exe
         - nuget pack Veronique.nuspec
+        - nuget push Veronique*.nupkg ${NUGET_API_KEY} -Source https://api.nuget.org/v3/index.json
 
 ci-release:
     stage: build
