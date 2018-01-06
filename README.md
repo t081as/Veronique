@@ -13,10 +13,13 @@ Veronique is a simple yet powerful command line tool helping versioning your sof
 
 ## Installation
 
-### Option 1: Binary
+### Option 1: NuGet
+NuGet packages are available [here](https://www.nuget.org/packages/Veronique/).
+
+### Option 2: Binary
 Stable versions can be downloaded [here](https://gitlab.com/tobiaskoch/Veronique/pipelines?scope=tags).
 
-### Option 2: Source
+### Option 3: Source
 #### Requirements
 The following applications must be available and included in you *PATH* environment variable:
 
