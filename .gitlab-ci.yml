@@ -25,7 +25,7 @@ release:
           - USAGE.md
           - CHANGELOG.md
           - AUTHORS.txt
-          - .nupkg
+          - ./*.nupkg
     script:
         - mono packages/Veronique.0.4.19/tools/Veronique.exe
         - msbuild "Veronique.sln" /p:Configuration="Release" /p:Platform="Any CPU"
@@ -48,7 +48,7 @@ ci-release:
           - USAGE.md
           - CHANGELOG.md
           - AUTHORS.txt
-          - .nupkg
+          - ./*.nupkg
     script:
         - mono packages/Veronique.0.4.19/tools/Veronique.exe
         - msbuild "Veronique.sln" /p:Configuration="Release" /p:Platform="Any CPU"
