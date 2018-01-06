@@ -1,5 +1,7 @@
 ## 0.4.X (XXXX-XX-XX)
 
+- Veronique is now self-versionizing
+- Veronique is available as nuget-package: https://www.nuget.org/packages/Veronique/
 - New writer: replace string in text file with regular expression (replace-text-regex)
 - New writer: set environment variable (set-env-var)
 
