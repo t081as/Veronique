@@ -32,7 +32,7 @@ namespace Veronique.Commands
         /// Initializes a new instance of the <see cref="GitDescribeCommand"/> class.
         /// </summary>
         public GitDescribeCommand()
-            : base("git", "describe")
+            : base("git", "describe --long")
         {
         }
 
