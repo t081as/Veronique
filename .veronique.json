@@ -49,13 +49,6 @@
   "writers":
   [
     {
-      "command": 
-      {
-        "name": "console",
-        "parameters": ["Version $$major$$.$$minor$$.$$build$$.$$revision$$-$$sha$$"]
-      }
-    },
-    {
       "command":
       {
         "name":"replace-text-regex",
