@@ -132,18 +132,18 @@ namespace Veronique
 
                         if (definitionCommandValue != null && definitionCommandValue != string.Empty)
                         {
-                            Console.WriteLine("Defition {0} processed; value: {1}", definition.Name, definitionCommandValue);
+                            Console.WriteLine("Definition {0} processed; value: {1}", definition.Name, definitionCommandValue);
                             processedDefinitions.Add(definition.Name, definitionCommandValue);
                         }
                         else
                         {
-                            Console.WriteLine("Defition {0} processed; value: {1}", definition.Name, "EMPTY");
+                            Console.WriteLine("Definition {0} processed; value: {1}", definition.Name, "EMPTY");
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Skipping defition {0}; error: {1}", definition.Name, ex.Message);
+                    Console.WriteLine("Skipping definition {0}; error: {1}", definition.Name, ex.Message);
                 }
             }
 
