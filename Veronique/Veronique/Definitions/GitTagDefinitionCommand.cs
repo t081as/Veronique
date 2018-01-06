@@ -96,6 +96,7 @@ namespace Veronique.Definitions
 
             string gitDescribeResult = this.gitDescribeCommand.Execute();
             string[] gitDescribeResultParts = gitDescribeResult.Split('-');
+            Console.WriteLine("Git command line output: {0}", gitDescribeResult);
 
             // Output of the git describe command should be tag-number of commits (since last tag)-shasum
             if (gitDescribeResultParts.Length < 3)
