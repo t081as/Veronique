@@ -1,3 +1,8 @@
+## 0.5.X (XXXX-XX-XX)
+
+- Removing broken set-env-var writer command
+- Fixing git-tag definition command
+
 ## 0.5 (2018-01-06)
 
 - Veronique is now self-versionizing
