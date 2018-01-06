@@ -8,7 +8,7 @@ JSON
     "command":
     {
 		"name":"replace-text",
-		"parameters":["./MyApp/MyFile.txt","\d","123"]
+		"parameters":["./MyApp/MyFile.txt","\\d+","123"]
     }
 }
 
