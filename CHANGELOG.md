@@ -1,4 +1,4 @@
-## 0.5.X (XXXX-XX-XX)
+## 0.6 (2018-01-06)
 
 - Removing broken set-env-var writer command
 - Fixing git-tag definition command
