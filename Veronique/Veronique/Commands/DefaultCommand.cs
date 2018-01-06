@@ -143,6 +143,8 @@ namespace Veronique.Commands
                 string output = process.StandardOutput.ReadToEnd().Trim();
                 string error = process.StandardError.ReadToEnd().Trim();
 
+                Console.WriteLine($"{this.command} output: {output}");
+
                 process.Close();
 
                 if (error != string.Empty && this.throwExceptionOnStandardError)
