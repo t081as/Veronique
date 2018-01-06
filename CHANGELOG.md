@@ -1,4 +1,4 @@
-## 0.4.X (XXXX-XX-XX)
+## 0.5 (2018-01-06)
 
 - Veronique is now self-versionizing
 - Veronique is available as nuget-package: https://www.nuget.org/packages/Veronique/
