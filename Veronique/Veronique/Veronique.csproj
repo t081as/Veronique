@@ -77,7 +77,6 @@
     <Compile Include="Utilities\Parameter.cs" />
     <Compile Include="Versionizer.cs" />
     <Compile Include="Writers\ConsoleWriterCommand.cs" />
-    <Compile Include="Writers\EnvironmentVariableWriterCommand.cs" />
     <Compile Include="Writers\IWriterCommand.cs" />
     <Compile Include="Writers\ReplaceTextRegexWriterCommand.cs" />
     <Compile Include="Writers\ReplaceTextWriterCommand.cs" />
@@ -97,7 +96,6 @@
     <EmbeddedResource Include="Help\build-number.txt" />
     <EmbeddedResource Include="Help\replace-text.txt" />
     <EmbeddedResource Include="Help\replace-text-regex.txt" />
-    <EmbeddedResource Include="Help\set-env-var.txt" />
     <Content Include="Veronique.ico" />
   </ItemGroup>
   <ItemGroup>
