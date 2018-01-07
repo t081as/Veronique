@@ -1,0 +1,24 @@
+﻿RANDOM
+
+TYPE
+Definition
+
+JSON
+{
+    "name":"MyVar",
+    "command":
+    {
+		"name":"random",
+		"parameters":["1","101"]
+    }
+}
+
+PARAMETERS
+min (int32):
+The inclusive lower bound of the random number.
+
+max (int32):
+The exclusive upper bound of the random number.
+
+DESCRIPTION
+Returns a random value between min and max-1.
