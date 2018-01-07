@@ -52,4 +52,4 @@ see [CONTRIBUTING.md](https://gitlab.com/tobiaskoch/Veronique/blob/master/CONTRI
 see [AUTHORS.txt](https://gitlab.com/tobiaskoch/Veronique/blob/master/AUTHORS.txt)
 
 ## License
-**Veronique** © 2017  Tobias Koch. Released under the [GPL](https://gitlab.com/tobiaskoch/Veronique/blob/master/LICENSE.md).
+**Veronique** © 2017-2018  Tobias Koch. Released under the [GPL](https://gitlab.com/tobiaskoch/Veronique/blob/master/LICENSE.md).
