@@ -14,7 +14,7 @@
     <description>Veronique is a simple yet powerful command line tool helping versioning your software projects automatically during the build process.</description>
     <language>en-US</language>
     <tags>version versioning git build ci continuous integration</tags>
-    <copyright>Copyright (c) 2018 Tobias Koch</copyright>
+    <copyright>Copyright (c) 2017-2018 Tobias Koch</copyright>
   </metadata>
   <files>
     <file src="USAGE.md" />
