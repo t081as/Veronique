@@ -1,0 +1,23 @@
+﻿TIMESTAMP
+
+TYPE
+Definition
+
+JSON
+{
+    "name":"MyVar",
+    "command":
+    {
+		"name":"timestamp",
+		"parameters":["local"]
+    }
+}
+
+PARAMETERS
+scope:
+The time that shall be used to calculate the timestamp. Possible values:
+- local
+- utc
+
+DESCRIPTION
+Returns a timestamp.

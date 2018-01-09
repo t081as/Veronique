@@ -98,6 +98,7 @@
     <EmbeddedResource Include="Help\replace-text.txt" />
     <EmbeddedResource Include="Help\replace-text-regex.txt" />
     <EmbeddedResource Include="Help\random.txt" />
+    <EmbeddedResource Include="Help\timestamp.txt" />
     <Content Include="Veronique.ico" />
   </ItemGroup>
   <ItemGroup>
