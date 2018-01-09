@@ -99,6 +99,7 @@ The following commands are available for definitions and writers:
  * [git-tag](./Veronique/Veronique/Help/git-tag.txt)
  * [build-number](./Veronique/Veronique/Help/build-number.txt)
  * [random](./Veronique/Veronique/Help/random.txt)
+ * [timestamp](./Veronique/Veronique/Help/timestamp.txt)
 
 ### Writers
 
