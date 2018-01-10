@@ -64,6 +64,7 @@
     <Compile Include="Definitions\GitTagDefinitionCommand.cs" />
     <Compile Include="Definitions\IDefinitionCommand.cs" />
     <Compile Include="Definitions\RandomDefinitionCommand.cs" />
+    <Compile Include="Definitions\TimestampDefinitionCommand.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="HelpProvider.cs" />
     <Compile Include="ICommandLineInterface.cs" />
