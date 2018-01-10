@@ -45,9 +45,10 @@ namespace Veronique.Test.Definitions
 
             double timeStamp = (DateTime.UtcNow - reference).TotalSeconds;
 
-            int ts1 = int.Parse(test.Evaluate(new string[] { "utc" }));
+            int returnedTimestamp = int.Parse(test.Evaluate(new string[] { "utc" }));
 
-            Assert.That(Math.Abs(ts1 - timeStamp) < 5, "Incorrect result from definition command");
+            Console.WriteLine($"Timestamp: reference: {timeStamp}; calculated: {returnedTimestamp}");
+            Assert.That(Math.Abs(returnedTimestamp - timeStamp) < 5, "Incorrect result from definition command");
         }
 
         #endregion
