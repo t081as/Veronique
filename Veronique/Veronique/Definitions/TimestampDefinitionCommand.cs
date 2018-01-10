@@ -56,9 +56,9 @@ namespace Veronique.Definitions
             switch (parameters[0].ToLower())
             {
                 case "local":
-                    return (DateTime.Now - reference).TotalSeconds.ToString();
+                    return Math.Round((DateTime.Now - reference).TotalSeconds, 0).ToString();
                 case "utc":
-                    return (DateTime.UtcNow - reference).TotalSeconds.ToString();
+                    return Math.Round((DateTime.UtcNow - reference).TotalSeconds, 0).ToString();
                 default:
                     return null;
             }
