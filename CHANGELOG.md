@@ -1,3 +1,8 @@
+## 0.7 (2018-01-11)
+
+- Adding timestamp definition command
+- Adding random definition command
+
 ## 0.6 (2018-01-06)
 
 - Removing broken set-env-var writer command
