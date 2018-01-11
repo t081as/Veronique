@@ -27,7 +27,7 @@ release:
           - AUTHORS.txt
           - ./*.nupkg
     script:
-        - mono packages/Veronique.0.6.1/tools/Veronique.exe
+        - mono packages/Veronique.0.7.1/tools/Veronique.exe
         - msbuild "Veronique.sln" /p:Configuration="Release" /p:Platform="Any CPU"
         - cp Build/Release/Veronique.exe Veronique.exe
         - nuget pack Veronique.nuspec
@@ -50,7 +50,7 @@ ci-release:
           - AUTHORS.txt
           - ./*.nupkg
     script:
-        - mono packages/Veronique.0.6.1/tools/Veronique.exe
+        - mono packages/Veronique.0.7.1/tools/Veronique.exe
         - msbuild "Veronique.sln" /p:Configuration="Release" /p:Platform="Any CPU"
         - cp Build/Release/Veronique.exe Veronique.exe
         - nuget pack Veronique.nuspec
