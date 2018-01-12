@@ -1,3 +1,7 @@
+## 0.7.X (XXXX-XX-XX)
+
+- Adding time definition command
+
 ## 0.7 (2018-01-11)
 
 - Adding timestamp definition command
