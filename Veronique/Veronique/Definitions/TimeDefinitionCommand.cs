@@ -71,35 +71,35 @@ namespace Veronique.Definitions
             switch (parameters[1].ToLower())
             {
                 case "hour":
-                    result = null;
+                    result = refTime.ToString("HH");
                     break;
 
                 case "short-hour":
-                    result = null;
+                    result = refTime.ToString("H");
                     break;
 
                 case "minute":
-                    result = null;
+                    result = refTime.ToString("mm");
                     break;
 
                 case "short-minute":
-                    result = null;
+                    result = refTime.ToString("m");
                     break;
 
                 case "second":
-                    result = null;
+                    result = refTime.ToString("ss");
                     break;
 
                 case "short-second":
-                    result = null;
+                    result = refTime.ToString("s");
                     break;
 
                 case "total-minutes":
-                    result = null;
+                    result = (refTime - DateTime.Today).TotalMinutes.ToString();
                     break;
 
                 case "total-seconds":
-                    result = null;
+                    result = (refTime - DateTime.Today).TotalSeconds.ToString();
                     break;
 
                 default:
