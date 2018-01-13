@@ -100,6 +100,7 @@
     <EmbeddedResource Include="Help\replace-text-regex.txt" />
     <EmbeddedResource Include="Help\random.txt" />
     <EmbeddedResource Include="Help\timestamp.txt" />
+    <EmbeddedResource Include="Help\time.txt" />
     <Content Include="Veronique.ico" />
   </ItemGroup>
   <ItemGroup>

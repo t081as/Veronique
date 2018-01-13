@@ -1,0 +1,44 @@
+﻿TIME
+
+TYPE
+Definition
+
+JSON
+{
+    "name":"MyVar",
+    "command":
+    {
+		"name":"time",
+		"parameters":["local", "hour"]
+    }
+}
+
+PARAMETERS
+scope:
+The time reference:
+- local
+- utc
+
+part:
+The part and formatting that shall be returned:
+- hour
+- short-hour
+- minute
+- short-minute
+- second
+- short-second
+- total-minutes (number of minutes since 00:00)
+- total-seconds (number of seconds since 00:00)
+
+DESCRIPTION
+Returns the defined part of the current time.
+
+EXAMPLE:
+01:11:08
+
+hour: 01
+short-hour: 1
+minute: 11
+short-minute: 11
+second: 08
+short-second: 8
