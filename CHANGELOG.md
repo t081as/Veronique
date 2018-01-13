@@ -1,4 +1,4 @@
-## 0.7.X (XXXX-XX-XX)
+## 0.8 (2018-01-13)
 
 - Adding time definition command
 
