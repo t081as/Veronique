@@ -3,10 +3,6 @@
 echo Veronique - build task
 echo.
 
-echo Preparing environment
-call "%VS140COMNTOOLS%\vsvars32.bat"
-if errorlevel 1 goto error
-
 echo Restoring nuget packages
 nuget restore Veronique.sln
 if errorlevel 1 goto error
