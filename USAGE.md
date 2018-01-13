@@ -100,7 +100,8 @@ The following commands are available for definitions and writers:
  * [build-number](./Veronique/Veronique/Help/build-number.txt)
  * [random](./Veronique/Veronique/Help/random.txt)
  * [timestamp](./Veronique/Veronique/Help/timestamp.txt)
-
+ * [time](./Veronique/Veronique/Help/time.txt)
+ 
 ### Writers
 
  * [console](./Veronique/Veronique/Help/console.txt)
