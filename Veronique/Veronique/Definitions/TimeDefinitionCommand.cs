@@ -80,19 +80,19 @@ namespace Veronique.Definitions
                     break;
 
                 case "minute":
-                    result = refTime.Minute.ToString();
-                    break;
-
-                case "short-minute":
                     result = refTime.Minute.ToString("00");
                     break;
 
+                case "short-minute":
+                    result = refTime.Minute.ToString();
+                    break;
+
                 case "second":
-                    result = refTime.Second.ToString();
+                    result = refTime.Second.ToString("00");
                     break;
 
                 case "short-second":
-                    result = refTime.Second.ToString("00");
+                    result = refTime.Second.ToString();
                     break;
 
                 case "total-minutes":
