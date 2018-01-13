@@ -53,6 +53,7 @@
     <Compile Include="Definitions\EnvironmentVariableDefinitionCommandTest.cs" />
     <Compile Include="Definitions\GitTagDefinitionCommandTest.cs" />
     <Compile Include="Definitions\RandomDefinitionCommandTest.cs" />
+    <Compile Include="Definitions\TimeDefinitionCommandTest.cs" />
     <Compile Include="Definitions\TimestampDefinitionCommandTest.cs" />
     <Compile Include="DocumentationTest.cs" />
     <Compile Include="GlobalSuppressions.cs" />

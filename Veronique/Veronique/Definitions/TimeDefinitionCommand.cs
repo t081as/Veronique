@@ -18,6 +18,7 @@
 
 #region Namespaces
 using System;
+using System.Globalization;
 using Veronique.Utilities;
 #endregion
 
@@ -71,27 +72,27 @@ namespace Veronique.Definitions
             switch (parameters[1].ToLower())
             {
                 case "hour":
-                    result = refTime.ToString("HH");
+                    result = refTime.Hour.ToString("00");
                     break;
 
                 case "short-hour":
-                    result = refTime.ToString("H");
+                    result = refTime.Hour.ToString();
                     break;
 
                 case "minute":
-                    result = refTime.ToString("mm");
+                    result = refTime.Minute.ToString();
                     break;
 
                 case "short-minute":
-                    result = refTime.ToString("m");
+                    result = refTime.Minute.ToString("00");
                     break;
 
                 case "second":
-                    result = refTime.ToString("ss");
+                    result = refTime.Second.ToString();
                     break;
 
                 case "short-second":
-                    result = refTime.ToString("s");
+                    result = refTime.Second.ToString("00");
                     break;
 
                 case "total-minutes":
