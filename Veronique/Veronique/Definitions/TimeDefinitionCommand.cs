@@ -96,11 +96,11 @@ namespace Veronique.Definitions
                     break;
 
                 case "total-minutes":
-                    result = (refTime - DateTime.Today).TotalMinutes.ToString();
+                    result = Math.Round((refTime - DateTime.Today).TotalMinutes, 0).ToString();
                     break;
 
                 case "total-seconds":
-                    result = (refTime - DateTime.Today).TotalSeconds.ToString();
+                    result = Math.Round((refTime - DateTime.Today).TotalSeconds, 0).ToString();
                     break;
 
                 default:

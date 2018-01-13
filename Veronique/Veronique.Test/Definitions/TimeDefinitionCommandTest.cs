@@ -40,14 +40,28 @@ namespace Veronique.Test.Definitions
         {
             IDefinitionCommand test = DefinitionCommandManager.CreateByName("time");
 
-            string hour = test.Evaluate(new string[] { "local", "hour" });
-            string shortHour = test.Evaluate(new string[] { "local", "short-hour" });
+            DateTime refLocal = DateTime.Now;
+            DateTime refUtc = DateTime.UtcNow;
+
+            string hour = test.Evaluate(new string[] { "utc", "hour" });
+            string shortHour = test.Evaluate(new string[] { "utc", "short-hour" });
             string minute = test.Evaluate(new string[] { "local", "minute" });
             string shortMinute = test.Evaluate(new string[] { "local", "short-minute" });
             string second = test.Evaluate(new string[] { "local", "second" });
             string shortSecond = test.Evaluate(new string[] { "local", "short-second" });
             string totalMinutes = test.Evaluate(new string[] { "local", "total-minutes" });
             string totalSeconds = test.Evaluate(new string[] { "local", "total-seconds" });
+
+            Assert.That(int.Parse(hour) == refUtc.Hour);
+            Assert.That(int.Parse(minute) == refLocal.Minute);
+            Assert.That(int.Parse(second) == refLocal.Second);
+
+            Assert.That(int.Parse(hour) == int.Parse(shortHour));
+            Assert.That(int.Parse(minute) == int.Parse(shortMinute));
+            Assert.That(int.Parse(second) == int.Parse(shortSecond));
+
+            Assert.That((refLocal - DateTime.Today.AddMinutes(int.Parse(totalMinutes))).TotalMinutes < 2);
+            Assert.That((refLocal - DateTime.Today.AddSeconds(int.Parse(totalSeconds))).TotalMinutes < 10);
         }
 
         #endregion
