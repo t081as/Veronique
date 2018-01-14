@@ -32,8 +32,8 @@ release:
         - mono packages/Veronique.0.8.1/tools/Veronique.exe
         - msbuild "Veronique.sln" /p:Configuration="Release" /p:Platform="Any CPU"
         - cp Build/Release/Veronique.exe Veronique.exe
-        - nuget pack Veronique.nuspec
-        - nuget push Veronique*.nupkg $NUGET_API_KEY -Source https://api.nuget.org/v3/index.json
+        - mono nuget.exe pack Veronique.nuspec
+        - mono nuget.exe push Veronique*.nupkg $NUGET_API_KEY -Source https://api.nuget.org/v3/index.json
 
 ci-release:
     stage: build
@@ -55,7 +55,7 @@ ci-release:
         - mono packages/Veronique.0.8.1/tools/Veronique.exe
         - msbuild "Veronique.sln" /p:Configuration="Release" /p:Platform="Any CPU"
         - cp Build/Release/Veronique.exe Veronique.exe
-        - nuget pack Veronique.nuspec
+        - mono nuget.exe pack Veronique.nuspec
     
 ci-debug:
     stage: test
