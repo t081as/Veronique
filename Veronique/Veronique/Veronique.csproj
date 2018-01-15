@@ -102,6 +102,7 @@
     <EmbeddedResource Include="Help\random.txt" />
     <EmbeddedResource Include="Help\timestamp.txt" />
     <EmbeddedResource Include="Help\time.txt" />
+    <EmbeddedResource Include="Help\date.txt" />
     <Content Include="Veronique.ico" />
   </ItemGroup>
   <ItemGroup>

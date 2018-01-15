@@ -1,0 +1,42 @@
+﻿DATE
+
+TYPE
+Definition
+
+JSON
+{
+    "name":"MyVar",
+    "command":
+    {
+		"name":"date",
+		"parameters":["utc","year"]
+    }
+}
+
+PARAMETERS
+scope:
+The date reference:
+- local
+- utc
+
+part:
+The part and formatting that shall be returned:
+- year
+- short-year
+- month
+- short-month
+- day
+- short-day
+
+DESCRIPTION
+Returns the defined part of the current date.
+
+EXAMPLE:
+2018-01-02:
+
+year: 2018
+short-year: 18
+month: 01
+short-month: 1
+day: 02
+short-day: 2
