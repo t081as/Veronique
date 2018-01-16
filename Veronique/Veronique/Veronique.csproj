@@ -58,6 +58,7 @@
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Definitions\BuildNumberDefinitionCommand.cs" />
     <Compile Include="Definitions\ConstDefinitionCommand.cs" />
+    <Compile Include="Definitions\DateDefinitionCommand.cs" />
     <Compile Include="Definitions\DefinitionCommandAttribute.cs" />
     <Compile Include="Definitions\DefinitionCommandManager.cs" />
     <Compile Include="Definitions\EnvironmentVariableDefinitionCommand.cs" />

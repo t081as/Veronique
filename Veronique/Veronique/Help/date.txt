@@ -32,10 +32,11 @@ DESCRIPTION
 Returns the defined part of the current date.
 
 EXAMPLE:
-2018-01-02:
+2009-01-02:
 
-year: 2018
-short-year: 18
+year: 2009
+short-year: 09
+very-short-year: 9
 month: 01
 short-month: 1
 day: 02
