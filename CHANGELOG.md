@@ -1,3 +1,7 @@
+## 0.8.X (XXXX-XX-XX)
+
+- Adding date definition command
+
 ## 0.8 (2018-01-13)
 
 - Adding time definition command

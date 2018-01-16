@@ -101,6 +101,7 @@ The following commands are available for definitions and writers:
  * [random](./Veronique/Veronique/Help/random.txt)
  * [timestamp](./Veronique/Veronique/Help/timestamp.txt)
  * [time](./Veronique/Veronique/Help/time.txt)
+ * [date](./Veronique/Veronique/Help/date.txt)
  
 ### Writers
 
