@@ -8,7 +8,7 @@ nuget restore Veronique.sln
 if errorlevel 1 goto error
 
 echo Setting version number
-packages\Veronique.0.8.1\tools\Veronique
+packages\Veronique.0.9.0\tools\Veronique
 if errorlevel 1 goto error
 
 echo Building solution (release)
