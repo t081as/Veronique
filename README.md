@@ -12,6 +12,10 @@
 Veronique is a simple yet powerful command line tool helping versioning your software projects automatically during the build process.
 
 ## Features
+- Written in plain C#, supports Microsoft Windows (.NET Framework) and Linux (Mono)
+- Available as single application file or as nuget package
+- Supports extracting version numbers from git tags
+- Supports persistent build numbers (using the gitlab-ci cache feature)
 
 ## Installation
 
