@@ -3,6 +3,8 @@
 # VERONIQUE
 
 [![pipeline status](https://gitlab.com/tobiaskoch/Veronique/badges/master/pipeline.svg)](https://gitlab.com/tobiaskoch/Veronique/commits/master)
+![maintained: yes](https://tobiaskoch.gitlab.io/badges/maintained-yes.svg)
+[![donate: paypal](https://tobiaskoch.gitlab.io/badges/donate-paypal.svg)](https://www.tk-software.de/donate)
 
 *Ver*-**Unique**-*onique*-**Version**
 
@@ -50,6 +52,9 @@ see [CONTRIBUTING.md](https://gitlab.com/tobiaskoch/Veronique/blob/master/CONTRI
 
 ## Contributors
 see [AUTHORS.txt](https://gitlab.com/tobiaskoch/Veronique/blob/master/AUTHORS.txt)
+
+## Donating
+Thanks for your interest in this project. You can show your appreciation and support further development by [donating](https://www.tk-software.de/donate).
 
 ## License
 **Veronique** © 2017-2018  Tobias Koch. Released under the [GPL](https://gitlab.com/tobiaskoch/Veronique/blob/master/LICENSE.md).
