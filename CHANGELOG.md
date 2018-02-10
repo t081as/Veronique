@@ -1,3 +1,4 @@
+## 1.0 (2018-02-09)
 ## 0.9 (2018-01-17)
 
 - Adding date definition command
