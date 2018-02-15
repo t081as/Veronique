@@ -1,3 +1,7 @@
+## 1.1 (2018-02-15)
+
+- Updating nuget package specification
+
 ## 1.0 (2018-02-09)
 ## 0.9 (2018-01-17)
 
