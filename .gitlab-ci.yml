@@ -3,6 +3,7 @@ image: mono:latest
 stages:
     - test
     - build
+    - deploy
 
 before_script:
     - apt-get -qq update
@@ -15,18 +16,13 @@ cache:
   paths:
   - .veronique/
 
-release:
-    stage: build
+push:
+    stage: deploy
     only:
         - tags
     artifacts:
         name: "${CI_PROJECT_NAME}-${CI_COMMIT_TAG}"
         paths:
-          - Veronique.exe
-          - LICENSE.md
-          - USAGE.md
-          - CHANGELOG.md
-          - AUTHORS.txt
           - ./*.nupkg
     script:
         - mono packages/Veronique.1.1.0/tools/Veronique.exe
@@ -35,7 +31,7 @@ release:
         - mono nuget.exe pack Veronique.nuspec
         - mono nuget.exe push Veronique*.nupkg $NUGET_API_KEY -Source https://api.nuget.org/v3/index.json
 
-ci-release:
+release:
     stage: build
     only:
         - master
@@ -57,7 +53,7 @@ ci-release:
         - cp Build/Release/Veronique.exe Veronique.exe
         - mono nuget.exe pack Veronique.nuspec
     
-ci-debug:
+debug:
     stage: test
     script:
         - msbuild "Veronique.sln" /p:Configuration="Debug" /p:Platform="Any CPU"
