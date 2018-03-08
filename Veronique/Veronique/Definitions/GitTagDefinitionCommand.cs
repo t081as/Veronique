@@ -123,7 +123,7 @@ namespace Veronique.Definitions
             // Retrieve version numbers used in the last tag
             List<string> versionNumbers = new List<string>();
 
-            foreach (Match match in Regex.Matches(lastTag, @"\d"))
+            foreach (Match match in Regex.Matches(lastTag, @"[\d]+"))
             {
                 versionNumbers.Add(match.Value);
             }
