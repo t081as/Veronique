@@ -25,7 +25,7 @@ push:
         paths:
           - ./*.nupkg
     script:
-        - mono packages/Veronique.1.1.0/tools/Veronique.exe
+        - mono packages/Veronique.1.2.0/tools/Veronique.exe
         - msbuild "Veronique.sln" /p:Configuration="Release" /p:Platform="Any CPU"
         - cp Build/Release/Veronique.exe Veronique.exe
         - mono nuget.exe pack Veronique.nuspec
@@ -48,7 +48,7 @@ release:
           - AUTHORS.txt
           - ./*.nupkg
     script:
-        - mono packages/Veronique.1.1.0/tools/Veronique.exe
+        - mono packages/Veronique.1.2.0/tools/Veronique.exe
         - msbuild "Veronique.sln" /p:Configuration="Release" /p:Platform="Any CPU"
         - cp Build/Release/Veronique.exe Veronique.exe
         - mono nuget.exe pack Veronique.nuspec
