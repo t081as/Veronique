@@ -86,6 +86,31 @@ namespace Veronique.Test.Definitions
             Assert.That(shasum == "ef53e9", "Result incorrect: shasum");
         }
 
+        /// <summary>
+        /// Checks if version numbers with more than one digit are returned correctly.
+        /// </summary>
+        /// <remarks>
+        /// see Issue 25 (https://gitlab.com/tobiaskoch/Veronique/issues/25)
+        /// </remarks>
+        [Test]
+        public void TestTwoDigits()
+        {
+            GitTagDefinitionCommand command = new GitTagDefinitionCommand();
+            command.GitDescribeCommand = new SimpleCommandMock("v0.11-5-ab53e9");
+
+            string major = command.Evaluate(new string[] { "major" });
+            string minor = command.Evaluate(new string[] { "minor" });
+            string revision = command.Evaluate(new string[] { "revision" });
+            string commits = command.Evaluate(new string[] { "commits" });
+            string shasum = command.Evaluate(new string[] { "shasum" });
+
+            Assert.That(major == "0", "Result incorrect: major");
+            Assert.That(minor == "11", "Result incorrect: minor");
+            Assert.That(revision == null, "Result incorrect: revision");
+            Assert.That(commits == "5", "Result incorrect: commits");
+            Assert.That(shasum == "ab53e9", "Result incorrect: shasum");
+        }
+
         #endregion
     }
 }
