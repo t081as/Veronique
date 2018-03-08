@@ -1,4 +1,4 @@
-## X.X (XXXX-XX-XX)
+## 1.2 (2018-03-08)
 
 - git-tag definition command fixed
 
