@@ -1,3 +1,7 @@
+## X.X (XXXX-XX-XX)
+
+- git-tag definition command fixed
+
 ## 1.1 (2018-02-15)
 
 - Updating nuget package specification
