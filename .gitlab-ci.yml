@@ -25,7 +25,7 @@ push:
         paths:
           - ./*.nupkg
     script:
-        - mono packages/Veronique.1.2.0/tools/Veronique.exe
+        - mono Build/Packages/Veronique.1.2.0/tools/Veronique.exe
         - msbuild "Veronique.sln" /p:Configuration="Release" /p:Platform="Any CPU"
         - cp Build/Release/Veronique.exe Veronique.exe
         - mono nuget.exe pack Veronique.nuspec
@@ -48,7 +48,7 @@ release:
           - AUTHORS.txt
           - ./*.nupkg
     script:
-        - mono packages/Veronique.1.2.0/tools/Veronique.exe
+        - mono Build/Packages/Veronique.1.2.0/tools/Veronique.exe
         - msbuild "Veronique.sln" /p:Configuration="Release" /p:Platform="Any CPU"
         - cp Build/Release/Veronique.exe Veronique.exe
         - mono nuget.exe pack Veronique.nuspec
@@ -57,4 +57,4 @@ debug:
     stage: test
     script:
         - msbuild "Veronique.sln" /p:Configuration="Debug" /p:Platform="Any CPU"
-        - mono packages/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe Build/Debug/Veronique.Test.dll --work=Build/Debug/ --result=Veronique.TestReport.xml
+        - mono Build/Packages/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe Build/Debug/Veronique.Test.dll --work=Build/Debug/ --result=Veronique.TestReport.xml
