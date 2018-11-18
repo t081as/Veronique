@@ -57,4 +57,4 @@ debug:
     stage: test
     script:
         - msbuild "Veronique.sln" /p:Configuration="Debug" /p:Platform="Any CPU"
-        - mono Build/Packages/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe Build/Debug/Veronique.Test.dll --work=Build/Debug/ --result=Veronique.TestReport.xml
+        - mono Build/Packages/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe Build/Debug/Veronique.Test.dll --inprocess --work=Build/Debug/ --result=Veronique.TestReport.xml
