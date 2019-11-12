@@ -61,4 +61,4 @@ see [AUTHORS.txt](https://gitlab.com/tobiaskoch/Veronique/blob/master/AUTHORS.tx
 Thanks for your interest in this project. You can show your appreciation and support further development by [donating](https://www.tk-software.de/donate).
 
 ## License
-**Veronique** © 2017-2018  [Tobias Koch](https://www.tk-software.de). Released under the [GPL](https://gitlab.com/tobiaskoch/Veronique/blob/master/LICENSE.md).
+**Veronique** © 2017-2019  [Tobias Koch](https://www.tk-software.de). Released under the [GPL](https://gitlab.com/tobiaskoch/Veronique/blob/master/LICENSE.md).

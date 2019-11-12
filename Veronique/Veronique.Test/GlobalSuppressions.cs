@@ -1,6 +1,6 @@
 #region GNU General Public License 3
 // Veronique - Easy versioning for software projects
-// Copyright (C) 2017-2018  Tobias Koch
+// Copyright (C) 2017-2019  Tobias Koch
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
