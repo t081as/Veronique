@@ -1,4 +1,4 @@
-This project is no longer maintained; please use the [Cake Build System](https://cakebuild.net/) instead.
+**This project is no longer maintained; please use the [Cake Build System](https://cakebuild.net/) instead.**
 
 ![VERONIQUE](https://gitlab.com/tobiaskoch/Veronique/raw/master/Media/Veronique-256.png)
 
