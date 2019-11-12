@@ -3,7 +3,6 @@
 # VERONIQUE
 
 [![pipeline status](https://gitlab.com/tobiaskoch/Veronique/badges/master/pipeline.svg)](https://gitlab.com/tobiaskoch/Veronique/commits/master)
-[![maintained: yes](https://tobiaskoch.gitlab.io/badges/maintained-yes.svg)](https://gitlab.com/tobiaskoch/Veronique/commits/master)
 [![donate: paypal](https://tobiaskoch.gitlab.io/badges/donate-paypal.svg)](https://www.tk-software.de/donate)
 
 *Ver*-**Unique**-*onique*-**Version**
