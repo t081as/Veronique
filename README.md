@@ -1,3 +1,5 @@
+This project is no longer maintained; please use the [Cake Build System](https://cakebuild.net/) instead.
+
 ![VERONIQUE](https://gitlab.com/tobiaskoch/Veronique/raw/master/Media/Veronique-256.png)
 
 # VERONIQUE
@@ -7,8 +9,6 @@
 
 *Ver*-**Unique**-*onique*-**Version**
 
----
-This project is no longer maintained; please use the [Cake Build System](https://cakebuild.net/) instead.
 ---
 Veronique is a simple yet powerful command line tool helping versioning your software projects automatically during the build process.
 
